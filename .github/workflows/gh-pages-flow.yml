@@ -1,6 +1,8 @@
 name: Build Page
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [web-page-trigger]
 jobs:
   build:
     runs-on: ubuntu-latest
