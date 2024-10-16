@@ -14,6 +14,8 @@ jobs:
           yarn build
           cd ..
           mv -v ./page/build/* . 
-          git add
+          git config --global user.name 'Page build Bot' 
+          git config --global user.email 'pagebuildbot@memeti.com'
+          git add -A .
           git commit -a -m "Bot update from eclipse gitlab"
           git push
