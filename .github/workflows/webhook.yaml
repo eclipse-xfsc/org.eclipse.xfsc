@@ -2,8 +2,7 @@ name: Build Page
 on:
   workflow_dispatch:
   repository_dispatch:
-    types:
-      - webhook
+    types: [trigger-from-gitlab]
 jobs:
   build:
     runs-on: ubuntu-latest
