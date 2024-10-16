@@ -10,6 +10,7 @@ jobs:
           ref: gh-pages
       - name: Run a multi-line script
         run: |
+          rm -rf ./*
           git clone -b xfsc-LandingPage https://gitlab.eclipse.org/eclipse/xfsc/xfsc-website.git page
           cd page
           yarn install
