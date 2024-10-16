@@ -1,0 +1,19 @@
+name: Build Page
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a multi-line script
+        run: |
+          git clone -b xfsc-landingpage https://gitlab.eclipse.org/eclipse/xfsc/xfsc-website.git page
+          cd page
+          yarn install
+          yarn build
+          cd ..
+          mv -v ./page/build/* . 
+          git add
+          git commit -a -m "Bot update from eclipse gitlab"
+          git push
