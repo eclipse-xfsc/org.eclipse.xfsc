@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run a multi-line script
         run: |
-          git clone -b xfsc-landingpage https://gitlab.eclipse.org/eclipse/xfsc/xfsc-website.git page
+          git clone -b xfsc-LandingPage https://gitlab.eclipse.org/eclipse/xfsc/xfsc-website.git page
           cd page
           yarn install
           yarn build
