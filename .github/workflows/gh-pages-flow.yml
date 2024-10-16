@@ -14,6 +14,7 @@ jobs:
           yarn build
           cd ..
           mv -v ./page/build/* . 
+          rm -rf ./page
           git config --global user.name 'Page build Bot' 
           git config --global user.email 'pagebuildbot@memeti.com'
           git add -A .
