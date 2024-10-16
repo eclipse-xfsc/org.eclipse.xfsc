@@ -18,4 +18,4 @@ jobs:
           git config --global user.email 'pagebuildbot@memeti.com'
           git add -A .
           git commit -a -m "Bot update from eclipse gitlab"
-          git push
+          git push origin xfsc-LandingPage
