@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
       - name: Run a multi-line script
         run: |
           git clone -b xfsc-LandingPage https://gitlab.eclipse.org/eclipse/xfsc/xfsc-website.git page
@@ -13,10 +15,10 @@ jobs:
           yarn install
           yarn build
           cd ..
-          mv -v ./page/build/* . 
+          mv -f -v ./page/build/* . 
           rm -rf ./page
           git config --global user.name 'Page build Bot' 
           git config --global user.email 'pagebuildbot@memeti.com'
           git add -A .
           git commit -a -m "Bot update from eclipse gitlab"
-          git push origin gh-pages
+          git push
