@@ -20,7 +20,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm install /docs/harbor/package.json
+        npm install /docs/harbor
 
     - name: Fetch and process data from Harbor projects
       run: |
