@@ -97,7 +97,10 @@ async function loadConfig() {
 // Fetch data from Harbor API using the provided URL
 async function fetchHarborData(apiUrl) {
     console.log(`Fetching data from API: ${apiUrl}`);
-    const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl, {
+        method: 'GET',
+        mode: 'no-cors', // CORS deaktiviert
+    });
 
     if (!response.ok) {
         console.error(`Failed to fetch data from ${apiUrl}:`, response.statusText);
