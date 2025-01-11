@@ -26,6 +26,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: harbor-data
-        path: ././docs/harbor/processed-harbor-data.json  # Stelle sicher, dass die Datei existiert
+        path: ./docs/harbor/processed-harbor-data.json  # Stelle sicher, dass die Datei existiert
     - name: Clean up
       run: rm -rf node_modules
