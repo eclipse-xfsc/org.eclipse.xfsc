@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harbor Repository Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .highlight {
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>GitHub and Harbor Repository Overview</h1>
+
+    <!-- Prominent display of top repositories -->
+    <h2>Top Repositories</h2>
+    <p class="highlight" id="most-pulled">Most Pulled: Loading data...</p>
+    <p class="highlight" id="least-pulled">Least Pulled: Loading data...</p>
+    <p class="highlight" id="last-pulled">Last Pulled: Loading data...</p>
+
+    <!-- Table for displaying repository data -->
+    <h2>Repository Data</h2>
+    <table id="repoTable">
+        <thead>
+            <tr>
+                <th>Repository Name</th>
+                <th>Pull Count</th>
+                <th>Last Push Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be dynamically inserted here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Load configuration file
+    async function loadConfig() {
+        const response = await fetch('config.json');
+        return await response.json();
+    }
+
+    // Fetch data from Harbor API using the provided URL
+    async function fetchHarborData(apiUrl) {
+        const response = await fetch(apiUrl);
+        const repos = await response.json();
+        return repos;
+    }
+
+    // Display repositories in the table and highlight the top ones
+    async function displayRepositories() {
+        const config = await loadConfig();
+
+        let allRepos = [];
+        let mostPulled = { name: '', pull_count: 0 };
+        let leastPulled = { name: '', pull_count: Infinity };
+        let lastPulled = { name: '', update_time: '' };
+
+        // Iterate over all API URLs to fetch repository data
+        for (const apiUrl of config.projects) {
+            const repos = await fetchHarborData(apiUrl);
+            allRepos = allRepos.concat(repos);
+
+            // Find the most pulled, least pulled, and last pulled repositories
+            for (const repo of repos) {
+                if (repo.pull_count > mostPulled.pull_count) {
+                    mostPulled = { name: repo.name, pull_count: repo.pull_count };
+                }
+                if (repo.pull_count < leastPulled.pull_count) {
+                    leastPulled = { name: repo.name, pull_count: repo.pull_count };
+                }
+                if (repo.update_time > lastPulled.update_time) {
+                    lastPulled = { name: repo.name, update_time: repo.update_time };
+                }
+            }
+        }
+
+        // Update the highlighted repository data
+        document.getElementById('most-pulled').textContent = `Most Pulled: ${mostPulled.name} (${mostPulled.pull_count} pulls)`;
+        document.getElementById('least-pulled').textContent = `Least Pulled: ${leastPulled.name} (${leastPulled.pull_count} pulls)`;
+        document.getElementById('last-pulled').textContent = `Last Pulled: ${lastPulled.name} (Last update: ${new Date(lastPulled.update_time).toLocaleString()})`;
+
+        // Populate the table with repository data
+        const tableBody = document.querySelector('#repoTable tbody');
+        allRepos.forEach(repo => {
+            const row = document.createElement('tr');
+
+            const repoNameCell = document.createElement('td');
+            repoNameCell.textContent = repo.name;
+            row.appendChild(repoNameCell);
+
+            const pullCountCell = document.createElement('td');
+            pullCountCell.textContent = repo.pull_count;
+            row.appendChild(pullCountCell);
+
+            const pushTimeCell = document.createElement('td');
+            pushTimeCell.textContent = new Date(repo.update_time).toLocaleString();
+            row.appendChild(pushTimeCell);
+
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Call the function to load and display repository data
+    displayRepositories();
+</script>
+
+</body>
+</html>
