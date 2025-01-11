@@ -22,10 +22,15 @@ jobs:
         cd ./docs/harbor
         # Node.js-Skript ausführen, um die Daten aus der config.json zu holen und zu verarbeiten
         node fetchAndProcessData.js
-    - name: Upload processed data as artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: harbor-data
-        path: ./docs/harbor/processed-harbor-data.json  # Stelle sicher, dass die Datei existiert
+    - name: Commit and push processed data to docs/harbor
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        
+        # Füge Änderungen hinzu und pushe sie
+        git add docs/harbor/processed-harbor-data.json
+        git commit -m "Update Harbor project data"
+        git push
+
     - name: Clean up
       run: rm -rf node_modules
