@@ -20,12 +20,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm install /docs/harbor
+        npm install ./docs/harbor
 
     - name: Fetch and process data from Harbor projects
       run: |
         # Node.js-Skript ausführen, um die Daten aus der config.json zu holen und zu verarbeiten
-        node /docs/harbor/fetchAndProcessData.js
+        node ./docs/harbor/fetchAndProcessData.js
 
     - name: Commit and push processed data to docs/harbor
       run: |
