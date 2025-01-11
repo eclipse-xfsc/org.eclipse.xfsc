@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "GitHub Action to fetch and process Harbor project data",
   "main": "fetchAndProcessData.js",
-  "scripts": {
-    "start": "node fetchAndProcessData.js",
-    "install": "npm install"
-  },
   "dependencies": {
     "node-fetch": "^2.6.7"
   },
