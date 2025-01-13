@@ -9,6 +9,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+          ref: gh-pages
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
@@ -24,13 +26,10 @@ jobs:
         node fetchAndProcessData.js
     - name: Commit and push processed data to docs/harbor
       run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
-        
-        # Füge Änderungen hinzu und pushe sie
-        git add docs/harbor/processed-harbor-data.json
-        git commit -m "Update Harbor project data"
-        git push
-
+         git config --global user.name 'Page build Bot' 
+         git config --global user.email 'pagebuildbot@memeti.com'
+         git add -A .
+         git commit -a -m "Bot update from eclipse gitlab"
+         git push
     - name: Clean up
       run: rm -rf node_modules
