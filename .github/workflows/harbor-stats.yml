@@ -24,8 +24,8 @@ jobs:
         node fetchAndProcessData.js
     - name: Commit and push processed data to docs/harbor
       run: |
-         git config --global user.name 'Page build Bot' 
-         git config --global user.email 'pagebuildbot@memeti.com'
+         git config --global user.name 'eclipse-xfsc-bot' 
+         git config --global user.email 'eclipse-xfsc-bot@eclipse.com'
          git add -A .
          git commit -a -m "Bot update from eclipse gitlab"
          git push
