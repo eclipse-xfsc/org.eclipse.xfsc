@@ -30,8 +30,8 @@
         }
         header h1 {
             font-size: 24px;
-            color: #333;
-            margin-left: 200px; /* Verschiebt den Titel um 50px nach links */
+            color: white; /* Titel in weiß */
+            margin-left: 70px; /* Verschiebt den Titel um 50px nach links */
         }
         /* Footer Styling */
         footer {
@@ -53,6 +53,13 @@
             padding-top: 70px; /* Abstand für den festen Header */
             padding-bottom: 70px; /* Abstand für den festen Footer */
         }
+        /* Central Title Styling */
+        .central-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: white;
+        }
         /* Accordion Styling */
         .accordion {
             background-color: transparent; /* Transparentes Hintergrund */
@@ -62,6 +69,7 @@
         }
         .accordion-item {
             border-bottom: 1px solid #ddd;
+            width: 100%; /* Reiter auf die gesamte Breite setzen */
         }
         .accordion-header {
             background-color: #2196f3;
@@ -71,7 +79,7 @@
             text-align: left;
             font-size: 18px;
             border: none;
-            width: 100%;
+            width: 100%; /* Breite auf 100% setzen */
             display: flex;
             align-items: center;
         }
@@ -124,12 +132,13 @@
     <!-- Header -->
     <header>
         <img src="img/xfsc_logo.svg" alt="Logo">
-        <h1>Project Statistics</h1>
     </header>
 
     <div class="container">
-        <!-- Zeilenumbruch statt <h1> -->
-        </br>
+        <!-- Central Title -->
+        <div class="central-title">
+            Project Statistics
+        </div>
 
         <!-- Accordion for Overview -->
         <div class="accordion">
@@ -204,7 +213,7 @@
                     document.getElementById('lowest-pull').innerText = lowestPullCount;
                     document.getElementById('latest-created').innerText = latestCreated.name;
                     document.getElementById('oldest-created').innerText = oldestCreated.name;
-                    document.getElementById('last-pulled').innerText = lastPulled.name; // Emoji entfernt
+                    document.getElementById('last-pulled').innerText = lastPulled.name;
 
                     // Create Full List Min/Max Values
                     document.getElementById('full-list-highest-pull').innerText = highestPullCount;
