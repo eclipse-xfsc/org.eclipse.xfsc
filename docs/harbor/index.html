@@ -3,183 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harbor Repository Overview</title>
+    <title>Project Statistics</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #3578e5, white); /* Farbverlauf von #3578e5 nach weiß */
             margin: 0;
-            padding: 20px;
-            background-color: #f4f7f6;
+            padding: 0;
         }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            margin-top: 40px;
-        }
-
-        table {
+        /* Header Styling */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 10px 20px;
+            position: fixed;
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ddd;
         }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
+        header img {
+            height: 40px; /* Größe des Logos */
         }
-
-        th {
-            background-color: #f4f4f4;
+        header h1 {
+            font-size: 24px;
+            color: #333;
+            margin-left: 20px;
         }
-
-        .highlight {
-            font-weight: bold;
-            font-size: 1.3em;
-            margin-top: 20px;
-            color: #2c3e50;
+        /* Footer Styling */
+        footer {
+            background-color: #000098;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
         }
-
+        footer img {
+            height: 40px; /* Größe des Logos im Footer */
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding-top: 70px; /* Abstand für den festen Header */
+            padding-bottom: 70px; /* Abstand für den festen Footer */
+        }
+        /* Accordion Styling */
+        .accordion {
+            background-color: transparent; /* Transparentes Hintergrund */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+        }
+        .accordion-header {
+            background-color: #2196f3;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+            font-size: 18px;
+            border: none;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .accordion-header::before {
+            content: '▶'; /* Pfeil-Symbol */
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .accordion-content {
+            padding: 15px;
+            background-color: transparent; /* Transparentes Hintergrund für Inhalt */
+            display: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        .highlight-highest {
+            background-color: #d3f9d8; /* Pastellgrün */
+            color: black;
+        }
+        .highlight-lowest {
+            background-color: #f9d8d8; /* Pastellrot */
+            color: black;
+        }
+        .highlight-recent {
+            background-color: #2196f3;
+            color: white;
+        }
+        .highlight-oldest {
+            background-color: #9e9e9e;
+            color: white;
+        }
+        .highlight-last-pulled {
+            background-color: #673ab7;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <img src="img/xfsc_logo.svg" alt="Logo">
+        <h1>Project Statistics</h1>
+    </header>
 
-<div class="container">
-    <h1>GitHub and Harbor Repository Overview</h1>
+    <div class="container">
+        <!-- Zeilenumbruch statt <h1> -->
+        </br>
 
-    <!-- Prominent display of top repositories -->
-    <h2>Top Repositories</h2>
-    <p class="highlight" id="most-pulled">Most Pulled: Loading data...</p>
-    <p class="highlight" id="least-pulled">Least Pulled: Loading data...</p>
-    <p class="highlight" id="last-pulled">Last Pulled: Loading data...</p>
+        <!-- Accordion for Overview -->
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">Overview</button>
+                <div class="accordion-content" style="display: block;">
+                    <h3>🏆 Most Pulled: <span id="highest-pull"></span></h3>
+                    <h3>🦆 Least Pulled: <span id="lowest-pull"></span></h3>
+                    <h3>👶 Most Recent Project: <span id="latest-created"></span></h3>
+                    <h3>👵 Oldest Project: <span id="oldest-created"></span></h3>
+                    <h3>🦆 Last Pulled Project: <span id="last-pulled"></span></h3>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Projects</button>
+                <div class="accordion-content">
+                    <div id="project-list">
+                        <!-- Projects will appear as accordions here -->
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Table for displaying repository data -->
-    <h2>Repository Data</h2>
-    <table id="repoTable">
-        <thead>
-            <tr>
-                <th>Repository Name</th>
-                <th>Pull Count</th>
-                <th>Last Push Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data will be dynamically inserted here -->
-        </tbody>
-    </table>
-</div>
+        <!-- Full List of Projects -->
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">Full List</button>
+                <div class="accordion-content">
+                    <h3>🏆 Most Pulled: <span id="full-list-highest-pull"></span></h3>
+                    <h3>🦆 Least Pulled: <span id="full-list-lowest-pull"></span></h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Pull Count</th>
+                                <th>Creation Time</th>
+                                <th>Last Update</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projects-table">
+                            <!-- Projects will be dynamically listed here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script>
-   // Load configuration file
-async function loadConfig() {
-    console.log('Loading config.json...');
-    const response = await fetch('config.json');
-    
-    if (!response.ok) {
-        console.error('Failed to load config.json:', response.statusText);
-        return;
-    }
-    
-    const config = await response.json();
-    console.log('Config loaded:', config);
-    return config;
-}
+    <!-- Footer -->
+    <footer>
+        <img src="img/footer_logo.svg" alt="Footer Logo">
+    </footer>
 
-// Fetch data from Harbor API using the provided URL
-async function fetchHarborData(apiUrl) {
-    console.log(`Fetching data from API: ${apiUrl}`);
-    const response = await fetch(apiUrl, {
-        method: 'GET',
-        mode: 'no-cors', // CORS deaktiviert
-    });
+    <script>
+        window.onload = function() {
+            fetch('processed-harbor-data.json') // Abrufen des JSONs von der lokalen Datei
+                .then(response => response.json())
+                .then(data => {
+                    const projects = data.projects;
 
-    if (!response.ok) {
-        console.error(`Failed to fetch data from ${apiUrl}:`, response.statusText);
-        return [];
-    }
+                    // Bestimmen des höchsten, niedrigsten, jüngsten und ältesten Projekts
+                    const highestPullCount = Math.max(...projects.map(p => p.pull_count));
+                    const lowestPullCount = Math.min(...projects.map(p => p.pull_count));
 
-    const repos = await response.json();
-    console.log('Data fetched:', repos);
-    return repos;
-}
+                    const latestCreated = projects.reduce((latest, current) => new Date(current.creation_time) > new Date(latest.creation_time) ? current : latest);
+                    const oldestCreated = projects.reduce((oldest, current) => new Date(current.creation_time) < new Date(oldest.creation_time) ? current : oldest);
 
-// Display repositories in the table and highlight the top ones
-async function displayRepositories() {
-    console.log('Starting to display repositories...');
-    const config = await loadConfig();
+                    const lastPulled = projects.reduce((last, current) => new Date(current.update_time) > new Date(last.update_time) ? current : last);
 
-    if (!config || !config.projects || config.projects.length === 0) {
-        console.error('No projects defined in config.json.');
-        return;
-    }
+                    // Filling the Overview
+                    document.getElementById('highest-pull').innerText = highestPullCount;
+                    document.getElementById('lowest-pull').innerText = lowestPullCount;
+                    document.getElementById('latest-created').innerText = latestCreated.name;
+                    document.getElementById('oldest-created').innerText = oldestCreated.name;
+                    document.getElementById('last-pulled').innerText = lastPulled.name;
 
-    let allRepos = [];
-    let mostPulled = { name: '', pull_count: 0 };
-    let leastPulled = { name: '', pull_count: Infinity };
-    let lastPulled = { name: '', update_time: '' };
+                    // Create Full List Min/Max Values
+                    document.getElementById('full-list-highest-pull').innerText = highestPullCount;
+                    document.getElementById('full-list-lowest-pull').innerText = lowestPullCount;
 
-    // Iterate over all API URLs to fetch repository data
-    for (const apiUrl of config.projects) {
-        const repos = await fetchHarborData(apiUrl);
-        allRepos = allRepos.concat(repos);
+                    // Group Projects by prefix (e.g., "common-services")
+                    const groupedProjects = {};
 
-        // Find the most pulled, least pulled, and last pulled repositories
-        for (const repo of repos) {
-            if (repo.pull_count > mostPulled.pull_count) {
-                mostPulled = { name: repo.name, pull_count: repo.pull_count };
-            }
-            if (repo.pull_count < leastPulled.pull_count) {
-                leastPulled = { name: repo.name, pull_count: repo.pull_count };
-            }
-            if (repo.update_time > lastPulled.update_time) {
-                lastPulled = { name: repo.name, update_time: repo.update_time };
-            }
-        }
-    }
+                    projects.forEach(project => {
+                        const groupName = project.name.split('/')[0];
+                        if (!groupedProjects[groupName]) {
+                            groupedProjects[groupName] = [];
+                        }
+                        groupedProjects[groupName].push(project);
+                    });
 
-    // Update the highlighted repository data
-    console.log('Most pulled repository:', mostPulled);
-    console.log('Least pulled repository:', leastPulled);
-    console.log('Last pulled repository:', lastPulled);
+                    // Create the Project List (Accordion for each group)
+                    const projectList = document.getElementById("project-list");
 
-    // Update the UI
-    document.getElementById('most-pulled').textContent = `Most Pulled: ${mostPulled.name} (${mostPulled.pull_count} pulls)`;
-    document.getElementById('least-pulled').textContent = `Least Pulled: ${leastPulled.name} (${leastPulled.pull_count} pulls)`;
-    document.getElementById('last-pulled').textContent = `Last Pulled: ${lastPulled.name} (Last update: ${new Date(lastPulled.update_time).toLocaleString()})`;
+                    Object.keys(groupedProjects).forEach(group => {
+                        const groupAccordion = document.createElement("div");
+                        groupAccordion.classList.add("accordion-item");
 
-    // Populate the table with repository data
-    const tableBody = document.querySelector('#repoTable tbody');
-    allRepos.forEach(repo => {
-        const row = document.createElement('tr');
+                        const groupHeader = document.createElement("button");
+                        groupHeader.classList.add("accordion-header");
+                        groupHeader.textContent = group;
+                        groupAccordion.appendChild(groupHeader);
 
-        const repoNameCell = document.createElement('td');
-        repoNameCell.textContent = repo.name;
-        row.appendChild(repoNameCell);
+                        const groupContent = document.createElement("div");
+                        groupContent.classList.add("accordion-content");
 
-        const pullCountCell = document.createElement('td');
-        pullCountCell.textContent = repo.pull_count;
-        row.appendChild(pullCountCell);
+                        // Group Min and Max Pull Counts
+                        const groupPullCounts = groupedProjects[group].map(project => project.pull_count);
+                        const groupMaxPull = Math.max(...groupPullCounts);
+                        const groupMinPull = Math.min(...groupPullCounts);
 
-        const pushTimeCell = document.createElement('td');
-        pushTimeCell.textContent = new Date(repo.update_time).toLocaleString();
-        row.appendChild(pushTimeCell);
+                        groupContent.innerHTML += `
+                            <h3>🏆 Most Pulled: ${groupMaxPull}</h3>
+                            <h3>🦆 Least Pulled: ${groupMinPull}</h3>
+                        `;
 
-        tableBody.appendChild(row);
-    });
-}
+                        // Create a table for the group
+                        const groupTable = document.createElement("table");
+                        groupTable.innerHTML = `
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Pull Count</th>
+                                    <th>Creation Time</th>
+                                    <th>Last Update</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        `;
 
-// Call the function to load and display repository data
-displayRepositories();
-</script>
+                        const groupTableBody = groupTable.querySelector("tbody");
 
+                        groupedProjects[group].forEach(project => {
+                            let rowClass = '';
+
+                            // Highlighting based on criteria
+                            if (project.pull_count === groupMaxPull) rowClass = 'highlight highlight-highest';
+                            if (project.pull_count === groupMinPull) rowClass = 'highlight highlight-lowest';
+                            if (new Date(project.creation_time).getTime() === new Date(latestCreated.creation_time).getTime()) rowClass = 'highlight highlight-recent';
+                            if (new Date(project.creation_time).getTime() === new Date(oldestCreated.creation_time).getTime()) rowClass = 'highlight highlight-oldest';
+                            if (new Date(project.update_time).getTime() === new Date(lastPulled.update_time).getTime()) rowClass = 'highlight highlight-last-pulled';
+
+                            groupTableBody.innerHTML += `
+                                <tr class="${rowClass}">
+                                    <td>${project.name}</td>
+                                    <td>${project.pull_count}</td>
+                                    <td>${new Date(project.creation_time).toLocaleString()}</td>
+                                    <td>${new Date(project.update_time).toLocaleString()}</td>
+                                </tr>
+                            `;
+                        });
+
+                        groupContent.appendChild(groupTable);
+                        groupAccordion.appendChild(groupContent);
+                        projectList.appendChild(groupAccordion);
+                    });
+
+                    // Create the Full List Table
+                    const tableBody = document.getElementById("projects-table");
+
+                    projects.forEach(project => {
+                        let rowClass = '';
+
+                        // Highlighting based on criteria
+                        if (project.pull_count === highestPullCount) rowClass = 'highlight highlight-highest';
+                        if (project.pull_count === lowestPullCount) rowClass = 'highlight highlight-lowest';
+                        if (new Date(project.creation_time).getTime() === new Date(latestCreated.creation_time).getTime()) rowClass = 'highlight highlight-recent';
+                        if (new Date(project.creation_time).getTime() === new Date(oldestCreated.creation_time).getTime()) rowClass = 'highlight highlight-oldest';
+                        if (new Date(project.update_time).getTime() === new Date(lastPulled.update_time).getTime()) rowClass = 'highlight highlight-last-pulled';
+
+                        tableBody.innerHTML += `
+                            <tr class="${rowClass}">
+                                <td>${project.name}</td>
+                                <td>${project.pull_count}</td>
+                                <td>${new Date(project.creation_time).toLocaleString()}</td>
+                                <td>${new Date(project.update_time).toLocaleString()}</td>
+                            </tr>
+                        `;
+                    });
+
+                    // Accordion logic for toggling
+                    const accordions = document.querySelectorAll('.accordion-header');
+                    accordions.forEach(accordion => {
+                        accordion.addEventListener('click', function () {
+                            const content = this.nextElementSibling;
+                            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                        });
+                    });
+                })
+                .catch(error => console.error('Error loading JSON:', error));
+        };
+    </script>
 </body>
 </html>
