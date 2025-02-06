@@ -31,7 +31,7 @@
         header h1 {
             font-size: 24px;
             color: #333;
-            margin-left: 20px;
+            margin-left: 70px; /* Verschiebt den Titel um 50px nach links */
         }
         /* Footer Styling */
         footer {
@@ -140,7 +140,7 @@
                     <h3>🦆 Least Pulled: <span id="lowest-pull"></span></h3>
                     <h3>👶 Most Recent Project: <span id="latest-created"></span></h3>
                     <h3>👵 Oldest Project: <span id="oldest-created"></span></h3>
-                    <h3>🦆 Last Pulled Project: <span id="last-pulled"></span></h3>
+                    <h3>Last Pulled Project: <span id="last-pulled"></span></h3> <!-- Emoji entfernt -->
                 </div>
             </div>
             <div class="accordion-item">
@@ -204,7 +204,7 @@
                     document.getElementById('lowest-pull').innerText = lowestPullCount;
                     document.getElementById('latest-created').innerText = latestCreated.name;
                     document.getElementById('oldest-created').innerText = oldestCreated.name;
-                    document.getElementById('last-pulled').innerText = lastPulled.name;
+                    document.getElementById('last-pulled').innerText = lastPulled.name; // Emoji entfernt
 
                     // Create Full List Min/Max Values
                     document.getElementById('full-list-highest-pull').innerText = highestPullCount;
