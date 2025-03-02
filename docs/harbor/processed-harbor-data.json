@@ -1,65 +1,65 @@
 {
-  "date": "2025-03-01T00:25:18.703Z",
+  "date": "2025-03-02T00:24:49.339Z",
   "projects": [
     {
       "name": "common-services/aas",
-      "pull_count": 61,
+      "pull_count": 63,
       "creation_time": "2025-01-29T17:39:53.386Z",
-      "update_time": "2025-03-01T00:01:39.852Z"
+      "update_time": "2025-03-02T00:01:40.360Z"
     },
     {
       "name": "common-services/email-service",
-      "pull_count": 94,
+      "pull_count": 96,
       "creation_time": "2025-01-13T19:42:41.773Z",
-      "update_time": "2025-03-01T00:02:20.146Z"
+      "update_time": "2025-03-02T00:02:10.437Z"
     },
     {
       "name": "common-services/sd-jwt-service",
-      "pull_count": 99,
+      "pull_count": 101,
       "creation_time": "2025-01-11T11:24:11.289Z",
-      "update_time": "2025-03-01T00:01:49.992Z"
+      "update_time": "2025-03-02T00:01:40.378Z"
     },
     {
       "name": "common-services/event-log-service",
-      "pull_count": 714,
+      "pull_count": 718,
       "creation_time": "2024-03-06T14:57:09.984Z",
-      "update_time": "2025-03-01T00:20:22.912Z"
+      "update_time": "2025-03-02T00:20:02.866Z"
     },
     {
       "name": "common-services/didcomm-connector",
-      "pull_count": 2098,
+      "pull_count": 2100,
       "creation_time": "2024-02-08T10:32:09.157Z",
-      "update_time": "2025-03-01T00:02:20.154Z"
+      "update_time": "2025-03-02T00:02:10.438Z"
     },
     {
       "name": "common-services/configuration-service",
-      "pull_count": 9038,
+      "pull_count": 9048,
       "creation_time": "2023-12-21T08:33:38.341Z",
-      "update_time": "2025-03-01T00:22:03.055Z"
+      "update_time": "2025-03-02T00:21:43.003Z"
     },
     {
       "name": "catalogue/fc-demo-portal",
-      "pull_count": 14663,
+      "pull_count": 14675,
       "creation_time": "2023-12-11T22:05:26.399Z",
-      "update_time": "2025-03-01T00:21:53.038Z"
+      "update_time": "2025-03-02T00:21:32.981Z"
     },
     {
       "name": "catalogue/fc-service-server",
-      "pull_count": 14248,
+      "pull_count": 14260,
       "creation_time": "2023-12-11T22:05:18.611Z",
-      "update_time": "2025-03-01T00:21:53.040Z"
+      "update_time": "2025-03-02T00:21:32.982Z"
     },
     {
       "name": "data-transaction/del",
-      "pull_count": 77,
+      "pull_count": 79,
       "creation_time": "2025-01-20T16:17:42.997Z",
-      "update_time": "2025-03-01T00:01:39.876Z"
+      "update_time": "2025-03-02T00:01:40.362Z"
     },
     {
       "name": "data-transaction/dct",
-      "pull_count": 94,
+      "pull_count": 96,
       "creation_time": "2025-01-13T20:23:31.297Z",
-      "update_time": "2025-03-01T00:02:20.152Z"
+      "update_time": "2025-03-02T00:02:10.449Z"
     },
     {
       "name": "dev-ops/ipfs-cluster",
@@ -87,27 +87,27 @@
     },
     {
       "name": "dev-ops/dss",
-      "pull_count": 2319,
+      "pull_count": 2325,
       "creation_time": "2024-02-02T16:32:56.638Z",
-      "update_time": "2025-03-01T00:14:42.352Z"
+      "update_time": "2025-03-02T00:14:32.451Z"
     },
     {
       "name": "dev-ops/custom-kaniko",
-      "pull_count": 655,
+      "pull_count": 657,
       "creation_time": "2024-02-02T16:14:56.785Z",
-      "update_time": "2025-03-01T00:21:53.043Z"
+      "update_time": "2025-03-02T00:21:32.985Z"
     },
     {
       "name": "dev-ops/golang-test-execution",
-      "pull_count": 2229,
+      "pull_count": 2233,
       "creation_time": "2024-01-26T15:29:15.050Z",
-      "update_time": "2025-03-01T00:06:51.315Z"
+      "update_time": "2025-03-02T00:06:41.559Z"
     },
     {
       "name": "dev-ops/bdd-executor",
-      "pull_count": 9541,
+      "pull_count": 9561,
       "creation_time": "2024-01-16T13:44:35.135Z",
-      "update_time": "2025-03-01T00:22:03.067Z"
+      "update_time": "2025-03-02T00:21:42.991Z"
     },
     {
       "name": "dev-ops/library",
@@ -123,195 +123,195 @@
     },
     {
       "name": "not/auto-notary",
-      "pull_count": 30608,
+      "pull_count": 30708,
       "creation_time": "2024-04-09T11:51:56.863Z",
-      "update_time": "2025-03-01T00:14:02.235Z"
+      "update_time": "2025-03-02T00:13:52.370Z"
     },
     {
       "name": "not/oid4vp-task",
-      "pull_count": 31286,
+      "pull_count": 31396,
       "creation_time": "2024-03-18T20:24:36.804Z",
-      "update_time": "2025-03-01T00:14:52.369Z"
+      "update_time": "2025-03-02T00:14:42.474Z"
     },
     {
       "name": "not/ssi-issuance2",
-      "pull_count": 29304,
+      "pull_count": 29414,
       "creation_time": "2024-03-12T16:11:04.697Z",
-      "update_time": "2025-03-01T00:15:02.422Z"
+      "update_time": "2025-03-02T00:14:42.471Z"
     },
     {
       "name": "not/oid4vci",
-      "pull_count": 60205,
+      "pull_count": 60403,
       "creation_time": "2024-03-06T13:32:09.093Z",
-      "update_time": "2025-03-01T00:20:32.928Z"
+      "update_time": "2025-03-02T00:20:12.886Z"
     },
     {
       "name": "not/rabbitmq-dev",
-      "pull_count": 1170,
+      "pull_count": 1172,
       "creation_time": "2024-02-27T09:31:49.835Z",
-      "update_time": "2025-03-01T00:20:02.877Z"
+      "update_time": "2025-03-02T00:19:42.849Z"
     },
     {
       "name": "not/keycloak-jq",
-      "pull_count": 1170,
+      "pull_count": 1172,
       "creation_time": "2024-02-27T09:22:36.845Z",
-      "update_time": "2025-03-01T00:20:02.876Z"
+      "update_time": "2025-03-02T00:19:42.853Z"
     },
     {
       "name": "not/ssi-issuance",
-      "pull_count": 33256,
+      "pull_count": 33370,
       "creation_time": "2024-02-27T08:14:59.977Z",
-      "update_time": "2025-03-01T00:21:12.979Z"
+      "update_time": "2025-03-02T00:20:52.940Z"
     },
     {
       "name": "not/train-enrollment",
-      "pull_count": 57393,
+      "pull_count": 57597,
       "creation_time": "2024-02-26T15:33:40.350Z",
-      "update_time": "2025-03-01T00:21:22.999Z"
+      "update_time": "2025-03-02T00:21:02.946Z"
     },
     {
       "name": "not/scheduler",
-      "pull_count": 61534,
+      "pull_count": 61744,
       "creation_time": "2024-02-22T10:54:28.265Z",
-      "update_time": "2025-03-01T00:21:43.032Z"
+      "update_time": "2025-03-02T00:21:22.975Z"
     },
     {
       "name": "not/revocation",
-      "pull_count": 61541,
+      "pull_count": 61751,
       "creation_time": "2024-02-22T10:54:11.968Z",
-      "update_time": "2025-03-01T00:21:43.035Z"
+      "update_time": "2025-03-02T00:21:22.969Z"
     },
     {
       "name": "ocm/tenant-manager/cache",
-      "pull_count": 3487,
+      "pull_count": 3499,
       "creation_time": "2024-04-12T15:13:57.626Z",
-      "update_time": "2025-03-01T00:10:11.696Z"
+      "update_time": "2025-03-02T00:10:01.921Z"
     },
     {
       "name": "ocm/schema-manager/cache",
-      "pull_count": 3487,
+      "pull_count": 3499,
       "creation_time": "2024-04-12T15:13:56.862Z",
-      "update_time": "2025-03-01T00:10:11.703Z"
+      "update_time": "2025-03-02T00:10:01.926Z"
     },
     {
       "name": "ocm/proof-manager/cache",
-      "pull_count": 3487,
+      "pull_count": 3499,
       "creation_time": "2024-04-12T15:13:55.810Z",
-      "update_time": "2025-03-01T00:10:11.701Z"
+      "update_time": "2025-03-02T00:10:01.933Z"
     },
     {
       "name": "ocm/connection-manager/cache",
-      "pull_count": 3487,
+      "pull_count": 3499,
       "creation_time": "2024-04-12T15:13:55.032Z",
-      "update_time": "2025-03-01T00:10:21.716Z"
+      "update_time": "2025-03-02T00:10:01.906Z"
     },
     {
       "name": "ocm/credential-manager/cache",
-      "pull_count": 2907,
+      "pull_count": 2917,
       "creation_time": "2024-04-12T15:13:54.261Z",
-      "update_time": "2025-03-01T00:10:21.706Z"
+      "update_time": "2025-03-02T00:10:01.910Z"
     },
     {
       "name": "ocm/ssi-abstraction/cache",
-      "pull_count": 2907,
+      "pull_count": 2917,
       "creation_time": "2024-04-12T15:13:53.456Z",
-      "update_time": "2025-03-01T00:10:21.709Z"
+      "update_time": "2025-03-02T00:10:01.937Z"
     },
     {
       "name": "ocm/did-manager/cache",
-      "pull_count": 2907,
+      "pull_count": 2917,
       "creation_time": "2024-04-12T15:13:52.131Z",
-      "update_time": "2025-03-01T00:10:21.717Z"
+      "update_time": "2025-03-02T00:10:01.914Z"
     },
     {
       "name": "ocm/tenant-manager",
-      "pull_count": 1182,
+      "pull_count": 1186,
       "creation_time": "2024-03-12T07:36:54.181Z",
-      "update_time": "2025-03-01T00:09:41.653Z"
+      "update_time": "2025-03-02T00:09:21.858Z"
     },
     {
       "name": "ocm/did-manager",
-      "pull_count": 2426,
+      "pull_count": 2430,
       "creation_time": "2024-02-23T12:04:29.100Z",
-      "update_time": "2025-03-01T00:09:51.670Z"
+      "update_time": "2025-03-02T00:09:31.884Z"
     },
     {
       "name": "ocm/proof-manager",
-      "pull_count": 1612,
+      "pull_count": 1616,
       "creation_time": "2024-02-20T14:36:00.022Z",
-      "update_time": "2025-03-01T00:09:41.655Z"
+      "update_time": "2025-03-02T00:09:21.850Z"
     },
     {
       "name": "ocm-wstack/ipfs-document-manager",
-      "pull_count": 3759,
+      "pull_count": 3761,
       "creation_time": "2024-05-15T10:55:00.400Z",
-      "update_time": "2025-03-01T00:06:11.018Z"
+      "update_time": "2025-03-02T00:06:01.493Z"
     },
     {
       "name": "ocm-wstack/credential-retrieval-service",
-      "pull_count": 5831,
+      "pull_count": 5839,
       "creation_time": "2024-04-09T07:40:16.129Z",
-      "update_time": "2025-03-01T00:07:31.424Z"
+      "update_time": "2025-03-02T00:07:21.631Z"
     },
     {
       "name": "ocm-wstack/dummycontentsigner",
-      "pull_count": 11981,
+      "pull_count": 11983,
       "creation_time": "2024-04-03T09:58:28.912Z",
-      "update_time": "2025-03-01T00:02:30.193Z"
+      "update_time": "2025-03-02T00:02:20.474Z"
     },
     {
       "name": "ocm-wstack/issuance-service",
-      "pull_count": 10915,
+      "pull_count": 10923,
       "creation_time": "2024-03-27T15:43:25.814Z",
-      "update_time": "2025-03-01T00:13:42.140Z"
+      "update_time": "2025-03-02T00:13:22.310Z"
     },
     {
       "name": "ocm-wstack/credential-verification-service",
-      "pull_count": 31526,
+      "pull_count": 31538,
       "creation_time": "2024-02-27T08:10:54.547Z",
-      "update_time": "2025-03-01T00:21:12.982Z"
+      "update_time": "2025-03-02T00:20:52.936Z"
     },
     {
       "name": "ocm-wstack/storage-service",
-      "pull_count": 11381,
+      "pull_count": 11393,
       "creation_time": "2024-02-13T21:48:15.525Z",
-      "update_time": "2025-03-01T00:21:02.972Z"
+      "update_time": "2025-03-02T00:20:42.923Z"
     },
     {
       "name": "ocm-wstack/pre-authorization-bridge",
-      "pull_count": 26690,
+      "pull_count": 26706,
       "creation_time": "2024-02-01T14:07:13.116Z",
-      "update_time": "2025-03-01T00:14:12.249Z"
+      "update_time": "2025-03-02T00:13:52.372Z"
     },
     {
       "name": "ocm-wstack/status-list-service",
-      "pull_count": 8118,
+      "pull_count": 8122,
       "creation_time": "2024-02-01T14:07:05.467Z",
-      "update_time": "2025-03-01T00:02:30.157Z"
+      "update_time": "2025-03-02T00:02:20.466Z"
     },
     {
       "name": "ocm-wstack/revocation-service",
-      "pull_count": 2906,
+      "pull_count": 2908,
       "creation_time": "2024-01-30T13:24:19.134Z",
-      "update_time": "2025-03-01T00:22:03.070Z"
+      "update_time": "2025-03-02T00:21:42.993Z"
     },
     {
       "name": "ocm-wstack/well-known-service",
-      "pull_count": 11393,
+      "pull_count": 11403,
       "creation_time": "2024-01-16T14:50:33.008Z",
-      "update_time": "2025-03-01T00:15:22.455Z"
+      "update_time": "2025-03-02T00:15:02.506Z"
     },
     {
       "name": "pcm/aries-mediator-service",
-      "pull_count": 5382,
+      "pull_count": 5386,
       "creation_time": "2023-11-28T13:07:20.334Z",
-      "update_time": "2025-03-01T00:20:22.910Z"
+      "update_time": "2025-03-02T00:20:02.880Z"
     },
     {
       "name": "pcm-cloud/frontend-template",
-      "pull_count": 92,
+      "pull_count": 94,
       "creation_time": "2025-01-14T20:10:51.449Z",
-      "update_time": "2025-03-01T00:01:49.975Z"
+      "update_time": "2025-03-02T00:01:50.384Z"
     },
     {
       "name": "pcm-cloud/plugin-discovery/plugin-discovery",
@@ -327,93 +327,93 @@
     },
     {
       "name": "pcm-cloud/presentation",
-      "pull_count": 2483,
+      "pull_count": 2485,
       "creation_time": "2024-06-10T15:21:04.131Z",
-      "update_time": "2025-03-01T00:02:20.150Z"
+      "update_time": "2025-03-02T00:02:20.464Z"
     },
     {
       "name": "pcm-cloud/issuing",
-      "pull_count": 962,
+      "pull_count": 964,
       "creation_time": "2024-06-10T15:20:50.574Z",
-      "update_time": "2025-03-01T00:04:30.666Z"
+      "update_time": "2025-03-02T00:04:31.292Z"
     },
     {
       "name": "pcm-cloud/backend-template",
-      "pull_count": 667,
+      "pull_count": 669,
       "creation_time": "2024-04-09T10:36:46.272Z",
-      "update_time": "2025-03-01T00:03:50.550Z"
+      "update_time": "2025-03-02T00:03:51.147Z"
     },
     {
       "name": "pcm-cloud/signer",
-      "pull_count": 611,
+      "pull_count": 613,
       "creation_time": "2024-03-12T15:41:03.711Z",
-      "update_time": "2025-03-01T00:19:02.791Z"
+      "update_time": "2025-03-02T00:18:52.783Z"
     },
     {
       "name": "pcm-cloud/plugin-frontend-template",
-      "pull_count": 2510,
+      "pull_count": 2512,
       "creation_time": "2024-03-08T16:21:06.494Z",
-      "update_time": "2025-03-01T00:03:50.500Z"
+      "update_time": "2025-03-02T00:03:41.125Z"
     },
     {
       "name": "pcm-cloud/plugin-proxy-template",
-      "pull_count": 1148,
+      "pull_count": 1150,
       "creation_time": "2024-03-06T13:29:08.405Z",
-      "update_time": "2025-03-01T00:20:22.904Z"
+      "update_time": "2025-03-02T00:20:02.881Z"
     },
     {
       "name": "pcm-cloud/plugin-backend-template",
-      "pull_count": 2168,
+      "pull_count": 2170,
       "creation_time": "2024-03-06T13:25:36.355Z",
-      "update_time": "2025-03-01T00:15:12.437Z"
+      "update_time": "2025-03-02T00:14:52.486Z"
     },
     {
       "name": "self-description/sd-creation-wizard-api",
-      "pull_count": 7282,
+      "pull_count": 7308,
       "creation_time": "2024-03-22T10:21:43.881Z",
-      "update_time": "2025-03-01T00:16:02.524Z"
+      "update_time": "2025-03-02T00:15:42.567Z"
     },
     {
       "name": "train/tspa-ui/cache",
-      "pull_count": 2026,
+      "pull_count": 2032,
       "creation_time": "2024-05-23T08:47:31.224Z",
-      "update_time": "2025-03-01T00:06:41.305Z"
+      "update_time": "2025-03-02T00:06:31.543Z"
     },
     {
       "name": "train/dns-zone-manager-nsd/cache",
-      "pull_count": 8015,
+      "pull_count": 8045,
       "creation_time": "2024-03-19T06:45:21.013Z",
-      "update_time": "2025-03-01T00:17:52.710Z"
+      "update_time": "2025-03-02T00:17:32.707Z"
     },
     {
       "name": "train/dns-zone-manager-ui/cache",
-      "pull_count": 1603,
+      "pull_count": 1609,
       "creation_time": "2024-03-19T06:44:55.197Z",
-      "update_time": "2025-03-01T00:17:52.694Z"
+      "update_time": "2025-03-02T00:17:32.699Z"
     },
     {
       "name": "train/tspa-ui",
-      "pull_count": 16559,
+      "pull_count": 16561,
       "creation_time": "2024-02-15T16:15:29.564Z",
-      "update_time": "2025-03-01T00:01:50.035Z"
+      "update_time": "2025-03-02T00:01:40.369Z"
     },
     {
       "name": "train/tspa-service",
-      "pull_count": 11164,
+      "pull_count": 11166,
       "creation_time": "2024-01-08T17:15:16.410Z",
-      "update_time": "2025-03-01T00:20:42.940Z"
+      "update_time": "2025-03-02T00:20:32.914Z"
     },
     {
       "name": "train/bdd/python_with_podman",
-      "pull_count": 16308,
+      "pull_count": 16340,
       "creation_time": "2023-12-22T11:14:23.215Z",
-      "update_time": "2025-03-01T00:22:33.093Z"
+      "update_time": "2025-03-02T00:22:13.016Z"
     },
     {
       "name": "train/trusted-content-resolver-java-client",
-      "pull_count": 38187,
+      "pull_count": 38201,
       "creation_time": "2023-12-18T10:21:22.675Z",
-      "update_time": "2025-03-01T00:22:03.064Z"
+      "update_time": "2025-03-02T00:21:42.988Z"
     },
     {
       "name": "train/tcr-service",
@@ -423,45 +423,45 @@
     },
     {
       "name": "train/bdd",
-      "pull_count": 705,
+      "pull_count": 707,
       "creation_time": "2023-12-12T22:53:55.930Z",
-      "update_time": "2025-03-01T00:22:33.087Z"
+      "update_time": "2025-03-02T00:22:13.021Z"
     },
     {
       "name": "train/dns-zone-manager-nsd",
-      "pull_count": 25635,
+      "pull_count": 25641,
       "creation_time": "2023-12-11T14:01:43.559Z",
-      "update_time": "2025-03-01T00:22:33.096Z"
+      "update_time": "2025-03-02T00:22:13.019Z"
     },
     {
       "name": "tsa/task",
-      "pull_count": 11797,
+      "pull_count": 11815,
       "creation_time": "2024-02-26T17:32:38.606Z",
-      "update_time": "2025-03-01T00:21:22.996Z"
+      "update_time": "2025-03-02T00:21:02.956Z"
     },
     {
       "name": "tsa/policy",
-      "pull_count": 15177,
+      "pull_count": 15195,
       "creation_time": "2024-02-26T17:13:21.678Z",
-      "update_time": "2025-03-01T00:21:22.993Z"
+      "update_time": "2025-03-02T00:21:02.944Z"
     },
     {
       "name": "tsa/infohub",
-      "pull_count": 19085,
+      "pull_count": 19105,
       "creation_time": "2024-02-26T16:11:05.642Z",
-      "update_time": "2025-03-01T00:21:22.995Z"
+      "update_time": "2025-03-02T00:21:02.955Z"
     },
     {
       "name": "tsa/cache",
-      "pull_count": 18358,
+      "pull_count": 18378,
       "creation_time": "2024-02-26T09:54:35.937Z",
-      "update_time": "2025-03-01T00:21:33.016Z"
+      "update_time": "2025-03-02T00:21:12.967Z"
     },
     {
       "name": "tsa/signer",
-      "pull_count": 50717,
+      "pull_count": 50741,
       "creation_time": "2024-02-06T17:28:17.010Z",
-      "update_time": "2025-03-01T00:21:22.997Z"
+      "update_time": "2025-03-02T00:21:02.951Z"
     }
   ]
 }
