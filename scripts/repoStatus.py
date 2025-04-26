@@ -6,8 +6,6 @@ GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 GITHUB_ORG = os.environ["GITHUB_ORG"]
 HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"}
 
-SONARCLOUD_URL = "https://sonarcloud.io"
-
 def fetch_repos():
     repos = []
     page = 1
@@ -23,28 +21,36 @@ def fetch_repos():
     return repos
 
 def generate_table(repos):
-    table = (
-        "| Repo | Quality Gate | Bugs | Vulnerabilities | Code Smells | Coverage | Duplication | Maintainability | Reliability | Security |\n"
-        "|:-----|:-------------|:-----|:----------------|:------------|:---------|:------------|:----------------|:------------|:---------|\n"
-    )
-
+    table = "| Repo | Status |\n"
+    table += "|:-----|:-------|\n"
+    
     for repo in sorted(repos):
         project_key = f"{GITHUB_ORG}_{repo}"
+        
+        repo_link = f"[{repo}](https://github.com/{GITHUB_ORG}/{repo}) [🔎](https://sonarcloud.io/dashboard?id={project_key})"
 
-        repo_link = f"[{repo}](https://github.com/{GITHUB_ORG}/{repo})"
-        sonar_link = f"[🔎](https://sonarcloud.io/dashboard?id={project_key})"
+        metrics = [
+            ("Quality Gate", f"![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=alert_status)"),
+            ("Bugs", f"![Bugs](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=bugs)"),
+            ("Vulnerabilities", f"![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=vulnerabilities)"),
+            ("Code Smells", f"![Code Smells](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=code_smells)"),
+            ("Coverage", f"![Coverage](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=coverage)"),
+            ("Duplication", f"![Duplication](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=duplicated_lines_density)"),
+            ("Maintainability", f"![Maintainability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=sqale_rating)"),
+            ("Reliability", f"![Reliability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=reliability_rating)"),
+            ("Security", f"![Security](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=security_rating)"),
+        ]
 
-        quality_gate = f"![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=alert_status)"
-        bugs = f"![Bugs](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=bugs)"
-        vulnerabilities = f"![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=vulnerabilities)"
-        code_smells = f"![Code Smells](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=code_smells)"
-        coverage = f"![Coverage](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=coverage)"
-        duplication = f"![Duplication](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=duplicated_lines_density)"
-        maintainability = f"![Maintainability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=sqale_rating)"
-        reliability = f"![Reliability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=reliability_rating)"
-        security = f"![Security](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=security_rating)"
+        # Gruppiere alle 3 Elemente pro Zeile
+        lines = []
+        for i in range(0, len(metrics), 3):
+            chunk = metrics[i:i+3]
+            line = " ".join(f"{name}: {badge}" for name, badge in chunk)
+            lines.append(line)
 
-        table += f"| {repo_link} {sonar_link} | {quality_gate} | {bugs} | {vulnerabilities} | {code_smells} | {coverage} | {duplication} | {maintainability} | {reliability} | {security} |\n"
+        status_text = "<br>".join(lines)
+        table += f"| {repo_link} | {status_text} |\n"
+    
     return table
 
 def update_readme(table):
