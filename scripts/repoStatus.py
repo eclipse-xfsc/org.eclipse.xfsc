@@ -23,8 +23,11 @@ def fetch_repos():
     return repos
 
 def generate_table(repos):
-    table = "| Repo | Quality Gate | Coverage | Bugs | Code Smells | Security |\n"
-    table += "|:-----|:-------------|:---------|:-----|:------------|:---------|\n"
+    table = (
+        "| Repo | Quality Gate | Bugs | Vulnerabilities | Code Smells | Coverage | Duplication | Maintainability | Reliability | Security |\n"
+        "|:-----|:-------------|:-----|:----------------|:------------|:---------|:------------|:----------------|:------------|:---------|\n"
+    )
+
     for repo in sorted(repos):
         project_key = f"{GITHUB_ORG}_{repo}"
 
@@ -32,19 +35,22 @@ def generate_table(repos):
         sonar_link = f"[🔎](https://sonarcloud.io/dashboard?id={project_key})"
 
         quality_gate = f"![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=alert_status)"
-        coverage = f"![Coverage](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=coverage)"
         bugs = f"![Bugs](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=bugs)"
+        vulnerabilities = f"![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=vulnerabilities)"
         code_smells = f"![Code Smells](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=code_smells)"
-        security = f"![Security](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=security_hotspots)"
+        coverage = f"![Coverage](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=coverage)"
+        duplication = f"![Duplication](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=duplicated_lines_density)"
+        maintainability = f"![Maintainability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=sqale_rating)"
+        reliability = f"![Reliability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=reliability_rating)"
+        security = f"![Security](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=security_rating)"
 
-        table += f"| {repo_link} {sonar_link} | {quality_gate} | {coverage} | {bugs} | {code_smells} | {security} |\n"
+        table += f"| {repo_link} {sonar_link} | {quality_gate} | {bugs} | {vulnerabilities} | {code_smells} | {coverage} | {duplication} | {maintainability} | {reliability} | {security} |\n"
     return table
 
 def update_readme(table):
     with open("README.md", "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Match "# Repo Status" until next "#", "##" or end of file
     new_content = re.sub(
         r"(# Repo Status\s*)(.*?)(^#|\Z)", 
         rf"\1\n\n{table}\n\n\3", 
