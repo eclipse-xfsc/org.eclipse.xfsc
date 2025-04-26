@@ -41,14 +41,10 @@ def generate_table(repos):
             ("Security", f"![Security](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=security_rating)"),
         ]
 
-        # Gruppiere alle 3 Elemente pro Zeile
-        lines = []
-        for i in range(0, len(metrics), 3):
-            chunk = metrics[i:i+3]
-            line = " ".join(f"{name}: {badge}" for name, badge in chunk)
-            lines.append(line)
-
+        # Jede Metrik auf einer eigenen Zeile
+        lines = [f"{name}: {badge}" for name, badge in metrics]
         status_text = "<br>".join(lines)
+        
         table += f"| {repo_link} | {status_text} |\n"
     
     return table
