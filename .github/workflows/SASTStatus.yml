@@ -2,7 +2,7 @@ name: Refresh Repo Status Table
 
 on:
   schedule:
-    - cron: '0 6 */14 * *' # Alle 2 Wochen
+    - cron: '0 1 * * *' # Alle 2 Wochen
   workflow_dispatch: # Manuell triggern möglich
 
 jobs:
