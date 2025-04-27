@@ -21,31 +21,31 @@ def fetch_repos():
     return repos
 
 def generate_table(repos):
-    table = "| Repo | Status |\n"
-    table += "|:-----|:-------|\n"
+    table = "| Repo + Status | Quality Gate | Coverage | Duplication | Maintainability | Reliability |\n"
+    table += "|:--------------|:-------------|:---------|:------------|:----------------|:------------|\n"
     
     for repo in sorted(repos):
         project_key = f"{GITHUB_ORG}_{repo}"
         
+        # Repo Link + Sonar Dashboard Link
         repo_link = f"[{repo}](https://github.com/{GITHUB_ORG}/{repo}) [🔎](https://sonarcloud.io/dashboard?id={project_key})"
 
-        metrics = [
-            ("Quality Gate", f"![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=alert_status)"),
-            ("Bugs", f"![Bugs](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=bugs)"),
-            ("Vulnerabilities", f"![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=vulnerabilities)"),
-            ("Code Smells", f"![Code Smells](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=code_smells)"),
-            ("Coverage", f"![Coverage](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=coverage)"),
-            ("Duplication", f"![Duplication](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=duplicated_lines_density)"),
-            ("Maintainability", f"![Maintainability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=sqale_rating)"),
-            ("Reliability", f"![Reliability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=reliability_rating)"),
-            ("Security", f"![Security](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=security_rating)"),
-        ]
+        # Mini Badges ohne Text: Security, Bugs, Vulnerabilities
+        security = f"![Security](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=security_rating)"
+        bugs = f"![Bugs](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=bugs)"
+        vulnerabilities = f"![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=vulnerabilities)"
 
-        # Jede Metrik auf einer eigenen Zeile
-        lines = [f"{name}: {badge}" for name, badge in metrics]
-        status_text = "<br>".join(lines)
-        
-        table += f"| {repo_link} | {status_text} |\n"
+        mini_badges = f"{security} {bugs} {vulnerabilities}"
+
+        # Weitere Badges mit normalem Text in Extra-Spalten
+        quality_gate = f"![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=alert_status)"
+        coverage = f"![Coverage](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=coverage)"
+        duplication = f"![Duplication](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=duplicated_lines_density)"
+        maintainability = f"![Maintainability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=sqale_rating)"
+        reliability = f"![Reliability](https://sonarcloud.io/api/project_badges/measure?project={project_key}&metric=reliability_rating)"
+
+        # Baue eine Zeile
+        table += f"| {repo_link}<br>{mini_badges} | {quality_gate} | {coverage} | {duplication} | {maintainability} | {reliability} |\n"
     
     return table
 
