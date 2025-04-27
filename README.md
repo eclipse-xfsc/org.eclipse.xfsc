@@ -2,7 +2,7 @@
 
 This repository contains information for committers and contributors. 
 
-# Contributor/Commiter Information
+# Contributor/Committer Information
 
 The repositories are controlled over [otterdog](https://otterdog.readthedocs.io/en/latest/). Changes which you are apply to the repo itself will be overriden in the next change of the [otterdog config](https://github.com/eclipse-xfsc/.eclipsefdn/blob/main/otterdog/eclipse-xfsc.jsonnet). If you plan to change anything like topics, names or descriptions etc. create an PR on this config and create an eclipse help desk issue. 
 
