@@ -10,6 +10,8 @@ Issue and PR templates are maintained within the .github repository. If you need
 
 Dependabot, github internal security, trivy and Sonarqube scanners are activiated within this project. 
 
+See [Dev Ops](https://github.com/eclipse-xfsc/dev-ops) Information.
+
 # Statistics
 
 For XFSC Harbor Statistics click [here](https://eclipse-xfsc.github.io/org.eclipse.xfsc/harbor)
