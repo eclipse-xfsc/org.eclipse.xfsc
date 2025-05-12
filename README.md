@@ -56,6 +56,8 @@ For XFSC Harbor Statistics click [here](https://eclipse-xfsc.github.io/org.eclip
 
 
 
+
+
 | Repo + Status | Quality Gate | Coverage | Duplication | Maintainability | Reliability |
 |:--------------|:-------------|:---------|:------------|:----------------|:------------|
 | [.eclipsefdn](https://github.com/eclipse-xfsc/.eclipsefdn) [🔎](https://sonarcloud.io/dashboard?id=eclipse-xfsc_.eclipsefdn)<br>![Security](https://sonarcloud.io/api/project_badges/measure?project=eclipse-xfsc_.eclipsefdn&metric=security_rating) ![Bugs](https://sonarcloud.io/api/project_badges/measure?project=eclipse-xfsc_.eclipsefdn&metric=bugs) ![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=eclipse-xfsc_.eclipsefdn&metric=vulnerabilities) | ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=eclipse-xfsc_.eclipsefdn&metric=alert_status) | ![Coverage](https://sonarcloud.io/api/project_badges/measure?project=eclipse-xfsc_.eclipsefdn&metric=coverage) | ![Duplication](https://sonarcloud.io/api/project_badges/measure?project=eclipse-xfsc_.eclipsefdn&metric=duplicated_lines_density) | ![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=eclipse-xfsc_.eclipsefdn&metric=sqale_rating) | ![Reliability](https://sonarcloud.io/api/project_badges/measure?project=eclipse-xfsc_.eclipsefdn&metric=reliability_rating) |
