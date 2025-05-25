@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Führt die Action jeden Tag um Mitternacht (UTC) aus
   workflow_dispatch:  # Ermöglicht manuelles Triggern der Action
+
+permissions:
+  contents: read
+  actions: write
+
 jobs:
   process-config:
     runs-on: ubuntu-latest
