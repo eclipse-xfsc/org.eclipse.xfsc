@@ -1,10 +1,10 @@
 import requests
 import os
 
-# KONFIGURATION
-GITHUB_ORG = "eclipse-xfsc"  # z. B. "openai"
+GITHUB_ORG = os.getenv("GITHUB_ORG")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+
 TOPICS = ["tsa", "ocm-w-stack", "ocm","aas","orchestration","cam","catalogue","portal"]
-#GITHUB_TOKEN = "dein_github_token"  # Optional
 
 README_PATH = "README.md"
 INSERT_ANCHOR = "# Xfsc Navigation"
