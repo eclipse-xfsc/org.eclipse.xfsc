@@ -4,7 +4,7 @@ import os
 GITHUB_ORG = os.getenv("GITHUB_ORG")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
-TOPICS = ["tsa", "ocm-w-stack", "ocm","aas","orchestration","cam","catalogue","portal","pcm","pcm-cloud"]
+TOPICS = ["tsa", "ocm-w-stack", "ocm","aas","orchestration","cam","catalogue","portal","pcm-mobile","pcm-cloud"]
 
 README_PATH = "README.md"
 INSERT_ANCHOR = "# XFSC Navigation"
