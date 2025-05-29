@@ -7,7 +7,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 TOPICS = ["tsa", "ocm-w-stack", "ocm","aas","orchestration","cam","catalogue","portal"]
 
 README_PATH = "README.md"
-INSERT_ANCHOR = "# Xfsc Navigation"
+INSERT_ANCHOR = "# XFSC Navigation"
 
 # GitHub API Header
 headers = {
