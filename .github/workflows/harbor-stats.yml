@@ -5,7 +5,7 @@ on:
   workflow_dispatch:  # Ermöglicht manuelles Triggern der Action
 
 permissions:
-  contents: read
+  contents: write
   actions: write
 
 jobs:
