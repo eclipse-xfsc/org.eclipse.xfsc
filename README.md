@@ -12,76 +12,15 @@ Dependabot, github internal security, trivy and Sonarqube scanners are activiate
 
 See [Dev Ops](https://github.com/eclipse-xfsc/dev-ops) Information.
 
+# XFSC Navigation
+
+
 # Statistics
 
 For XFSC Harbor Statistics click [here](https://eclipse-xfsc.github.io/org.eclipse.xfsc/harbor)
 
 
 # Repo Status
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 | Repo + Status | Quality Gate | Coverage | Duplication | Maintainability | Reliability |
