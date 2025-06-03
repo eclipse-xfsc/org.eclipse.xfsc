@@ -12,6 +12,8 @@ Dependabot, github internal security, trivy and Sonarqube scanners are activiate
 
 See [Dev Ops](https://github.com/eclipse-xfsc/dev-ops) Information.
 
+The navigation in this readme is auto generated, you need just add your topics in this [script](https://github.com/eclipse-xfsc/org.eclipse.xfsc/blob/main/scripts/navigation.py#L7)
+
 # XFSC Navigation
 
 | Topic | Repositories |
@@ -33,17 +35,6 @@ For XFSC Harbor Statistics click [here](https://eclipse-xfsc.github.io/org.eclip
 
 
 # Repo Status
-
-
-
-
-
-
-
-
-
-
-
 
 | Repo + Status | Quality Gate | Coverage | Duplication | Maintainability | Reliability |
 |:--------------|:-------------|:---------|:------------|:----------------|:------------|
