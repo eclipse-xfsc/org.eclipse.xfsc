@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Dashboard – Issues & PRs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background: #eee; }
+    .label { background: #ddd; border-radius: 3px; padding: 2px 5px; margin-right: 4px; display: inline-block; }
+  </style>
+</head>
+<body>
+
+<h1>GitHub Dashboard: Issues & Pull Requests</h1>
+<div id="status">Loading data...</div>
+
+<table id="results">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Repository</th>
+      <th>Title</th>
+      <th>Labels</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+const ORG = "eclipse-xfsc"; // ← Replace this with your GitHub organization
+
+async function loadData() {
+  const headers = {};
+  const status = document.getElementById("status");
+  const tbody = document.querySelector("#results tbody");
+  tbody.innerHTML = '';
+  status.textContent = `Fetching repositories from "${ORG}"...`;
+
+  const repos = await fetchAll(`https://api.github.com/orgs/${ORG}/repos`, headers);
+  if (!repos) return;
+
+  status.textContent = `Fetching issues & pull requests from ${repos.length} repositories...`;
+
+  for (const repo of repos) {
+    const issues = await fetchAll(`https://api.github.com/repos/${ORG}/${repo.name}/issues`, headers);
+    if (!issues) continue;
+
+    for (const issue of issues) {
+      const isPR = !!issue.pull_request;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${isPR ? "PR" : "Issue"}</td>
+        <td>${repo.name}</td>
+        <td><a href="${issue.html_url}" target="_blank">${issue.title}</a></td>
+        <td>${issue.labels.map(l => `<span class="label">${l.name}</span>`).join("")}</td>
+        <td>${issue.user.login}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+  }
+
+  status.textContent = "Done.";
+}
+
+async function fetchAll(url, headers, perPage = 100) {
+  try {
+    let results = [], page = 1;
+    while (true) {
+      const res = await fetch(`${url}?per_page=${perPage}&page=${page}`, { headers });
+      if (!res.ok) throw new Error("API error " + res.status);
+      const data = await res.json();
+      results = results.concat(data);
+      if (data.length < perPage) break;
+      page++;
+    }
+    return results;
+  } catch (e) {
+    document.getElementById("status").textContent = "Error: " + e.message;
+    return null;
+  }
+}
+
+loadData(); // Load automatically when page loads
+</script>
+
+</body>
+</html>
