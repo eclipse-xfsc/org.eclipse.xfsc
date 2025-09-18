@@ -1,0 +1,55 @@
+name: Org Repo Dash Scan
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # jeden Tag um 02:00 UTC
+  workflow_dispatch: # manueller Start
+
+permissions:
+  contents: write       # nötig zum Commit ins Repo
+  actions: read         # nötig um Workflow-Runs anderer Repos abzufragen
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Collect Dash workflow runs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORG: deine-org # <== hier Organisation eintragen
+        run: |
+          echo "| Repo | Last Run | Status |" > IPSTATUS.md
+          echo "|------|----------|--------|" >> IPSTATUS.md
+
+          repos=$(gh repo list "$ORG" --json name --jq '.[].name')
+          for repo in $repos; do
+            run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt \
+                   --jq '[.[] | select(.name | test("Eclipse Dash"; "i"))][0]')
+            
+            if [ -z "$run" ] || [ "$run" = "null" ]; then
+              echo "| $repo | – | ⏳ |" >> IPSTATUS.md
+              continue
+            fi
+
+            lastRun=$(echo "$run" | jq -r '.createdAt')
+            status=$(echo "$run" | jq -r '.conclusion // .status')
+
+            case "$status" in
+              success) icon="✅" ;;
+              failure) icon="❌" ;;
+              *) icon="⏳" ;;
+            esac
+
+            echo "| $repo | $lastRun | $icon |" >> IPSTATUS.md
+          done
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add IPSTATUS.md
+          git commit -m "Update IPSTATUS.md [skip ci]" || echo "No changes to commit"
+          git push
