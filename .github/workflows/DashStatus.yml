@@ -19,7 +19,7 @@ jobs:
       - name: Collect Dash workflow runs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ORG: deine-org # <== hier Organisation eintragen
+          ORG: eclipse-xfsc # <== hier Organisation eintragen
         run: |
           echo "| Repo | Last Run | Status |" > IPSTATUS.md
           echo "|------|----------|--------|" >> IPSTATUS.md
