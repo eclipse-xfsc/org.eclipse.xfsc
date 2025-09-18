@@ -19,19 +19,12 @@ jobs:
       - name: Collect Dash workflow runs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ORG: deine-org # <== Organisation eintragen
+          ORG: eclipse-xfsc
         run: |
           echo "| Repo | Last Run | Status |" > IPSTATUS.md
           echo "|------|----------|--------|" >> IPSTATUS.md
 
-          repos=""
-          page=1
-          while :; do
-            result=$(gh repo list "$ORG" --limit 100 --page $page --json name --jq '.[].name')
-            [ -z "$result" ] && break
-            repos="$repos $result"
-            page=$((page+1))
-          done
+          repos=$(gh api --paginate /orgs/$ORG/repos --jq '.[].name')
 
           for repo in $repos; do
             run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt \
@@ -53,7 +46,7 @@ jobs:
 
             echo "| $repo | $lastRun | $icon |" >> IPSTATUS.md
           done
-
+          
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
