@@ -1,0 +1,32 @@
+| Repo | Last Run | Status |
+|------|----------|--------|
+| org.eclipse.xfsc | – | ⏳ |
+| dev-ops | – | ⏳ |
+| .github | – | ⏳ |
+| federated-catalogue | 2025-09-18T17:06:23Z | ❌ |
+| didcomm-v2-connector | 2025-09-01T00:30:19Z | ✅ |
+| orchestration-engine | – | ⏳ |
+| configuration-service | 2025-09-01T00:16:24Z | ❌ |
+| ssi-vdr-ipfs | 2025-09-01T00:16:24Z | ❌ |
+| portal-user-account-service | 2025-09-18T17:15:16Z | ❌ |
+| portal-admin-service | 2025-09-01T00:33:41Z | ❌ |
+| crypto-provider-hashicorp-vault-plugin | 2025-09-01T00:16:50Z | ❌ |
+| portal-onboarding-service | 2025-09-01T00:28:26Z | ❌ |
+| cloud-event-provider | 2025-09-01T00:19:44Z | ✅ |
+| train-dns-trust-zone-manager | 2025-09-01T00:31:53Z | ⏳ |
+| ssi-jwt | 2025-09-01T00:06:50Z | ✅ |
+| oid4-vci-authorization-bridge | 2025-09-01T00:04:29Z | ✅ |
+| event-log-service | 2025-09-01T00:36:07Z | ✅ |
+| cloud-wallet-plugin-kubernetes-operator | 2025-09-01T00:10:36Z | ❌ |
+| microservice-core-go | 2025-09-01T00:29:03Z | ❌ |
+| gx-vc-verifier-npm | 2025-09-01T00:07:49Z | ❌ |
+| sd-jwt-service | 2025-09-01T00:07:17Z | ✅ |
+| trusted-info-hub | 2025-09-01T00:27:28Z | ❌ |
+| portal-did-management-service | 2025-09-01T00:22:27Z | ❌ |
+| train-trust-framework-manager | 2025-09-01T00:37:53Z | ❌ |
+| aries-ssi-agent | 2025-08-01T00:42:14Z | ❌ |
+| redis-cache-service | 2025-09-01T00:04:40Z | ✅ |
+| portal-claim-mapping-service | 2025-09-01T00:26:37Z | ❌ |
+| portal-self-description-service | 2025-09-01T00:02:15Z | ❌ |
+| portal-claim-mapping-library | 2025-09-01T00:32:27Z | ❌ |
+| oid4-vci-vp-well-known-service | 2025-09-01T00:39:06Z | ✅ |
