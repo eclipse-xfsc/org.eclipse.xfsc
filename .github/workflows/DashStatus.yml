@@ -8,7 +8,6 @@ on:
 permissions:
   contents: write       # nötig zum Commit ins Repo
   actions: read         # nötig um Workflow-Runs anderer Repos abzufragen
-  metadata: read        # Standard
 
 jobs:
   scan:
