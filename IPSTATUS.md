@@ -49,7 +49,7 @@
 | sd-validation-api | 2025-09-01T00:10:25Z | ❌ |
 | ssi-jwt | 2025-09-01T00:06:50Z | ✅ |
 | ssi-vdr-core | – | ⏳ |
-| ssi-vdr-ipfs | 2025-09-01T00:16:24Z | ❌ |
+| ssi-vdr-ipfs | 2025-09-18T22:23:39Z | ❌ |
 | statuslist-service | 2025-09-01T00:19:18Z | ✅ |
 | task-sheduler | 2025-09-01T00:24:38Z | ✅ |
 | train-dns-trust-zone-manager | 2025-09-01T00:31:53Z | ⏳ |
