@@ -23,7 +23,7 @@
 | did-core | 2025-08-01T00:18:40Z | ❌ |
 | didcomm-v2-connector | 2025-09-01T00:30:19Z | ✅ |
 | docs | – | ⏳ |
-| email-service | 2025-09-01T00:35:33Z | ❌ |
+| email-service | 2025-09-19T08:18:50Z | ❌ |
 | event-log-service | 2025-09-01T00:36:07Z | ✅ |
 | integration | – | ⏳ |
 | ipfs-document-manager | 2025-09-01T00:37:22Z | ❌ |
