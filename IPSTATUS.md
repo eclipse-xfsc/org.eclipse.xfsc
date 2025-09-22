@@ -27,7 +27,7 @@
 | event-log-service | 2025-09-01T00:36:07Z | ✅ |
 | integration | – | ⏳ |
 | ipfs-document-manager | 2025-09-01T00:37:22Z | ❌ |
-| microservice-core-go | 2025-09-01T00:29:03Z | ❌ |
+| microservice-core-go | – | ⏳ |
 | nats-message-library | 2025-09-01T00:00:39Z | ✅ |
 | notarization-service | – | ⏳ |
 | oid4-vci-authorization-bridge | 2025-09-01T00:04:29Z | ✅ |
