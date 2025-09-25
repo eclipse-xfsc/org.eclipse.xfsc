@@ -5,7 +5,7 @@
 | .eclipsefdn | – | ⏳ |
 | .github | – | ⏳ |
 | aries-integration-tests | 2025-09-01T00:35:58Z | ⏳ |
-| aries-ssi-agent | 2025-08-01T00:42:14Z | ❌ |
+| aries-ssi-agent | 2025-09-24T07:39:39Z | ❌ |
 | cam | 2025-09-01T00:07:40Z | ❌ |
 | cloud-event-provider | – | ⏳ |
 | configuration-service | 2025-09-01T00:16:24Z | ❌ |
