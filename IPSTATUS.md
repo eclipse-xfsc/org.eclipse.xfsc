@@ -5,7 +5,7 @@
 | .eclipsefdn | – | ⏳ |
 | .github | – | ⏳ |
 | aries-integration-tests | 2025-10-01T00:33:15Z | ⏳ |
-| aries-ssi-agent | 2025-10-01T00:28:24Z | ❌ |
+| aries-ssi-agent | 2025-10-07T08:09:05Z | ❌ |
 | cam | 2025-10-01T00:07:31Z | ❌ |
 | cloud-event-provider | 2025-10-01T00:18:20Z | ❌ |
 | configuration-service | 2025-10-01T00:15:14Z | ❌ |
@@ -52,7 +52,7 @@
 | ssi-vdr-ipfs | 2025-10-01T00:15:14Z | ❌ |
 | statuslist-service | 2025-10-01T00:17:57Z | ❌ |
 | task-sheduler | 2025-10-01T00:22:37Z | ✅ |
-| train-dns-trust-zone-manager | 2025-10-01T00:29:03Z | ⏳ |
+| train-dns-trust-zone-manager | 2025-10-07T08:21:29Z | ❌ |
 | train-integration-tests | 2025-10-01T00:23:19Z | ⏳ |
 | train-shared | – | ⏳ |
 | train-trust-framework-manager | 2025-10-01T00:34:40Z | ❌ |
@@ -101,7 +101,7 @@
 | did | – | ⏳ |
 | didcomm-mediator-service | – | ⏳ |
 | federated-catalogue | 2025-10-01T00:09:03Z | ❌ |
-| transmute-universal-resolver-driver | 2025-10-01T00:14:54Z | ❌ |
+| transmute-universal-resolver-driver | 2025-10-07T08:12:50Z | ❌ |
 | aw40-demonstrator | – | ⏳ |
 | easy-stack-builder | – | ⏳ |
 | easy-stack-builder-catalogue | – | ⏳ |
