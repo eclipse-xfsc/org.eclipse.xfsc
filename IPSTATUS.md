@@ -1,113 +1,113 @@
-| Repo | Last Run | Status |
-|------|----------|--------|
-| org.eclipse.xfsc | – | ⏳ |
-| landingpage | – | ⏳ |
-| .eclipsefdn | – | ⏳ |
-| .github | – | ⏳ |
-| aries-integration-tests | 2025-10-01T00:33:15Z | ⏳ |
-| aries-ssi-agent | 2025-10-07T08:09:05Z | ❌ |
-| cam | 2025-10-01T00:07:31Z | ❌ |
-| cloud-event-provider | 2025-10-01T00:18:20Z | ❌ |
-| configuration-service | 2025-10-01T00:15:14Z | ❌ |
-| credential-storage-service | 2025-09-01T00:38:40Z | ❌ |
-| crypto-provider-core | – | ⏳ |
-| crypto-provider-hashicorp-vault-plugin | 2025-09-01T00:16:50Z | ❌ |
-| crypto-provider-local-plugin | – | ⏳ |
-| crypto-provider-luna-cloud-hsm-plugin | – | ⏳ |
-| crypto-provider-service | 2025-10-01T00:09:04Z | ✅ |
-| custom-policy-agent | 2025-10-01T00:07:48Z | ✅ |
-| data-contract-transaction | 2025-08-01T00:10:12Z | ❌ |
-| data-exchange-logging | – | ⏳ |
-| deployment | – | ⏳ |
-| dev-ops | – | ⏳ |
-| did-core | 2025-08-01T00:18:40Z | ❌ |
-| didcomm-v2-connector | 2025-10-01T00:27:39Z | ✅ |
-| docs | – | ⏳ |
-| email-service | 2025-10-01T00:06:13Z | ✅ |
-| event-log-service | 2025-09-01T00:36:07Z | ✅ |
-| integration | – | ⏳ |
-| ipfs-document-manager | 2025-10-01T00:34:09Z | ❌ |
-| microservice-core-go | 2025-10-01T00:26:30Z | ❌ |
-| nats-message-library | – | ⏳ |
-| notarization-service | – | ⏳ |
-| oid4-vci-authorization-bridge | 2025-10-01T00:04:16Z | ✅ |
-| oid4-vci-credential-retrieval-service | 2025-10-01T00:22:37Z | ✅ |
-| oid4-vci-credential-verification-service | 2025-10-01T00:03:05Z | ❌ |
-| oid4-vci-issuer-dummycontentsigner | 2025-10-01T00:02:44Z | ❌ |
-| oid4-vci-issuer-service | 2025-10-01T00:21:49Z | ❌ |
-| oid4-vci-vp-integration-tests | – | ⏳ |
-| oid4-vci-vp-library | – | ⏳ |
-| oid4-vci-vp-well-known-service | 2025-10-01T00:35:35Z | ✅ |
-| orchestration-engine | 2025-10-01T00:25:12Z | ❌ |
-| orchestrators | – | ⏳ |
-| redis-cache-service | 2025-10-01T00:04:33Z | ✅ |
-| rego-policies | – | ⏳ |
-| sd-creation-wizard-api | 2025-10-01T00:05:45Z | ❌ |
-| sd-creation-wizard-frontend | 2025-10-01T00:13:52Z | ❌ |
-| sd-jwt-service | 2025-10-01T00:07:25Z | ❌ |
-| sd-schemas | – | ⏳ |
-| sd-validation-api | 2025-10-01T00:10:18Z | ❌ |
-| ssi-jwt | – | ⏳ |
-| ssi-vdr-core | – | ⏳ |
-| ssi-vdr-ipfs | 2025-10-01T00:15:14Z | ❌ |
-| statuslist-service | 2025-10-01T00:17:57Z | ❌ |
-| task-sheduler | 2025-10-01T00:22:37Z | ✅ |
-| train-dns-trust-zone-manager | 2025-10-07T08:21:29Z | ❌ |
-| train-integration-tests | 2025-10-01T00:23:19Z | ⏳ |
-| train-shared | – | ⏳ |
-| train-trust-framework-manager | 2025-10-01T00:34:40Z | ❌ |
-| train-trusted-content-resolver | 2025-08-01T00:21:43Z | ❌ |
-| trusted-info-hub | 2025-10-01T00:25:03Z | ❌ |
-| workshops | – | ⏳ |
-| aas | 2025-10-01T00:13:45Z | ❌ |
-| bdd-executor | – | ⏳ |
-| cloud-wallet-account-service | 2025-10-01T00:18:55Z | ❌ |
-| cloud-wallet-integration-tests | 2025-10-01T00:26:06Z | ⏳ |
-| cloud-wallet-plugin-backend-template | 2025-09-01T00:37:58Z | ❌ |
-| cloud-wallet-plugin-core | 2025-10-01T00:13:26Z | ❌ |
-| cloud-wallet-plugin-discovery | – | ⏳ |
-| cloud-wallet-plugin-frontend-template | 2025-10-01T00:30:28Z | ❌ |
-| cloud-wallet-web-ui | 2025-10-01T00:04:12Z | ❌ |
-| gx-vc-verifier-npm | 2025-10-01T00:07:30Z | ❌ |
-| mobile-wallet | – | ⏳ |
-| mobile-wallet-integration-tests | – | ⏳ |
-| portal-admin-service | 2025-10-01T00:30:46Z | ❌ |
-| portal-article-service | 2025-10-01T00:13:34Z | ✅ |
-| portal-claim-mapping-library | 2025-10-01T00:29:31Z | ❌ |
-| portal-claim-mapping-service | 2025-10-01T00:24:43Z | ❌ |
-| portal-dashboard-service | 2025-10-01T00:29:05Z | ✅ |
-| portal-demo | 2025-10-01T00:28:27Z | ❌ |
-| portal-did-management-service | – | ⏳ |
-| portal-discovery-service | 2025-10-01T00:28:59Z | ❌ |
-| portal-e2e-test-automation | 2025-09-01T00:25:50Z | ❌ |
-| portal-federated-catalogue-management | 2025-09-01T00:01:00Z | ⏳ |
-| portal-frontend | – | ⏳ |
-| portal-infra-mesh | – | ⏳ |
-| portal-integration | 2025-07-01T00:33:21Z | ❌ |
-| portal-lcm-service | 2025-10-01T00:14:50Z | ❌ |
-| portal-onboarding-service | 2025-10-01T00:26:12Z | ❌ |
-| portal-policy-management-service | 2025-09-01T00:18:57Z | ❌ |
-| portal-pre-acceptance-testing | – | ⏳ |
-| portal-principal-credential-creation-service | 2025-09-01T00:38:18Z | ❌ |
-| portal-proof-management-service | 2025-09-01T00:26:02Z | ✅ |
-| portal-resource-provision-demo | 2025-09-01T00:16:24Z | ⏳ |
-| portal-self-description-management | 2025-09-01T00:16:51Z | ❌ |
-| portal-self-description-service | 2025-10-01T00:02:31Z | ❌ |
-| portal-sp-service | 2025-10-01T00:19:34Z | ✅ |
-| portal-user-account-service | 2025-10-01T00:07:25Z | ❌ |
-| cloud-wallet-plugin-kubernetes-operator | 2025-10-01T00:10:18Z | ❌ |
-| crypto-provider-service-java | – | ⏳ |
-| tsa-integration-tests | – | ⏳ |
-| did | – | ⏳ |
-| didcomm-mediator-service | – | ⏳ |
-| federated-catalogue | 2025-10-01T00:09:03Z | ❌ |
-| transmute-universal-resolver-driver | 2025-10-07T08:12:50Z | ❌ |
-| aw40-demonstrator | – | ⏳ |
-| easy-stack-builder | – | ⏳ |
-| easy-stack-builder-catalogue | – | ⏳ |
-| easy-stack-builder-orce | – | ⏳ |
-| facis | – | ⏳ |
-| facis-aviation-poc | – | ⏳ |
-| facis-fap1-implementation | – | ⏳ |
-| facis-fap2-implementation | – | ⏳ |
-| trusted-cloud | – | ⏳ |
+| Repo | Last Run | Status | Workflow Link | Secrets inherit | Permissions read/write |
+|------|----------|--------|----------------|-----------------|------------------------|
+| org.eclipse.xfsc | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/org.eclipse.xfsc/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| landingpage | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/landingpage/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| .eclipsefdn | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/.eclipsefdn/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| .github | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/.github/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| aries-integration-tests | 2025-10-01T00:33:15Z | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/aries-integration-tests/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| aries-ssi-agent | 2025-10-07T08:09:05Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/aries-ssi-agent/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ❌ |
+| cam | 2025-10-01T00:07:31Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cam/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| cloud-event-provider | 2025-10-01T00:18:20Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-event-provider/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| configuration-service | 2025-10-01T00:15:14Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/configuration-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ❌ |
+| credential-storage-service | 2025-09-01T00:38:40Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/credential-storage-service/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| crypto-provider-core | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/crypto-provider-core/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| crypto-provider-hashicorp-vault-plugin | 2025-09-01T00:16:50Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/crypto-provider-hashicorp-vault-plugin/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| crypto-provider-local-plugin | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/crypto-provider-local-plugin/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| crypto-provider-luna-cloud-hsm-plugin | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/crypto-provider-luna-cloud-hsm-plugin/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| crypto-provider-service | 2025-10-01T00:09:04Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/crypto-provider-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| custom-policy-agent | 2025-10-01T00:07:48Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/custom-policy-agent/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| data-contract-transaction | 2025-08-01T00:10:12Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/data-contract-transaction/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| data-exchange-logging | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/data-exchange-logging/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| deployment | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/deployment/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| dev-ops | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/dev-ops/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| did-core | 2025-08-01T00:18:40Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/did-core/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| didcomm-v2-connector | 2025-10-01T00:27:39Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/didcomm-v2-connector/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| docs | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/docs/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| email-service | 2025-10-01T00:06:13Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/email-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| event-log-service | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/event-log-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| integration | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/integration/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| ipfs-document-manager | 2025-10-01T00:34:09Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/ipfs-document-manager/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| microservice-core-go | 2025-10-01T00:26:30Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/microservice-core-go/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| nats-message-library | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/nats-message-library/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| notarization-service | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/notarization-service/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| oid4-vci-authorization-bridge | 2025-10-01T00:04:16Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/oid4-vci-authorization-bridge/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| oid4-vci-credential-retrieval-service | 2025-10-01T00:22:37Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/oid4-vci-credential-retrieval-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| oid4-vci-credential-verification-service | 2025-10-01T00:03:05Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/oid4-vci-credential-verification-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| oid4-vci-issuer-dummycontentsigner | 2025-10-01T00:02:44Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/oid4-vci-issuer-dummycontentsigner/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| oid4-vci-issuer-service | 2025-10-01T00:21:49Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/oid4-vci-issuer-service/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| oid4-vci-vp-integration-tests | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/oid4-vci-vp-integration-tests/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| oid4-vci-vp-library | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/oid4-vci-vp-library/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| oid4-vci-vp-well-known-service | 2025-10-01T00:35:35Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/oid4-vci-vp-well-known-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| orchestration-engine | 2025-10-01T00:25:12Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/orchestration-engine/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| orchestrators | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/orchestrators/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| redis-cache-service | 2025-10-01T00:04:33Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/redis-cache-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| rego-policies | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/rego-policies/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| sd-creation-wizard-api | 2025-10-01T00:05:45Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/sd-creation-wizard-api/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| sd-creation-wizard-frontend | 2025-10-01T00:13:52Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/sd-creation-wizard-frontend/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| sd-jwt-service | 2025-10-01T00:07:25Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/sd-jwt-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| sd-schemas | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/sd-schemas/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| sd-validation-api | 2025-10-01T00:10:18Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/sd-validation-api/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| ssi-jwt | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/ssi-jwt/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| ssi-vdr-core | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/ssi-vdr-core/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| ssi-vdr-ipfs | 2025-10-01T00:15:14Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/ssi-vdr-ipfs/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| statuslist-service | 2025-10-01T00:17:57Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/statuslist-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| task-sheduler | 2025-10-01T00:22:37Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/task-sheduler/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| train-dns-trust-zone-manager | 2025-10-07T08:21:29Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/train-dns-trust-zone-manager/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ❌ |
+| train-integration-tests | 2025-10-01T00:23:19Z | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/train-integration-tests/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| train-shared | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/train-shared/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| train-trust-framework-manager | 2025-10-01T00:34:40Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/train-trust-framework-manager/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| train-trusted-content-resolver | 2025-08-01T00:21:43Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/train-trusted-content-resolver/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| trusted-info-hub | 2025-10-01T00:25:03Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/trusted-info-hub/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| workshops | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/workshops/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| aas | 2025-10-01T00:13:45Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/aas/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| bdd-executor | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/bdd-executor/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| cloud-wallet-account-service | 2025-10-01T00:18:55Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-wallet-account-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| cloud-wallet-integration-tests | 2025-10-01T00:26:06Z | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-wallet-integration-tests/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| cloud-wallet-plugin-backend-template | 2025-09-01T00:37:58Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-wallet-plugin-backend-template/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| cloud-wallet-plugin-core | 2025-10-01T00:13:26Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-wallet-plugin-core/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| cloud-wallet-plugin-discovery | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-wallet-plugin-discovery/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| cloud-wallet-plugin-frontend-template | 2025-10-01T00:30:28Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-wallet-plugin-frontend-template/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| cloud-wallet-web-ui | 2025-10-01T00:04:12Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-wallet-web-ui/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| gx-vc-verifier-npm | 2025-10-01T00:07:30Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/gx-vc-verifier-npm/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| mobile-wallet | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/mobile-wallet/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| mobile-wallet-integration-tests | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/mobile-wallet-integration-tests/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| portal-admin-service | 2025-10-01T00:30:46Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-admin-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-article-service | 2025-10-01T00:13:34Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-article-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-claim-mapping-library | 2025-10-01T00:29:31Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-claim-mapping-library/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-claim-mapping-service | 2025-10-01T00:24:43Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-claim-mapping-service/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-dashboard-service | 2025-10-01T00:29:05Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-dashboard-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-demo | 2025-10-01T00:28:27Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-demo/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-did-management-service | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-did-management-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-discovery-service | 2025-10-01T00:28:59Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-discovery-service/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-e2e-test-automation | 2025-09-01T00:25:50Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-e2e-test-automation/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-federated-catalogue-management | 2025-09-01T00:01:00Z | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-federated-catalogue-management/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-frontend | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-frontend/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-infra-mesh | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-infra-mesh/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| portal-integration | 2025-07-01T00:33:21Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-integration/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-lcm-service | 2025-10-01T00:14:50Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-lcm-service/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-onboarding-service | 2025-10-01T00:26:12Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-onboarding-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-policy-management-service | 2025-09-01T00:18:57Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-policy-management-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-pre-acceptance-testing | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-pre-acceptance-testing/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| portal-principal-credential-creation-service | 2025-09-01T00:38:18Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-principal-credential-creation-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-proof-management-service | 2025-09-01T00:26:02Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-proof-management-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-resource-provision-demo | 2025-09-01T00:16:24Z | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-resource-provision-demo/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-self-description-management | 2025-09-01T00:16:51Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-self-description-management/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-self-description-service | 2025-10-01T00:02:31Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-self-description-service/blob/main/.github/workflows/eclipse-dash.yml) | ❌ | ❌ |
+| portal-sp-service | 2025-10-01T00:19:34Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-sp-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| portal-user-account-service | 2025-10-01T00:07:25Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/portal-user-account-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| cloud-wallet-plugin-kubernetes-operator | 2025-10-12T13:29:51Z | ✅ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/cloud-wallet-plugin-kubernetes-operator/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| crypto-provider-service-java | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/crypto-provider-service-java/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| tsa-integration-tests | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/tsa-integration-tests/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| did | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/did/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| didcomm-mediator-service | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/didcomm-mediator-service/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| federated-catalogue | 2025-10-01T00:09:03Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/federated-catalogue/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| transmute-universal-resolver-driver | 2025-10-07T08:12:50Z | ❌ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/transmute-universal-resolver-driver/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ❌ |
+| aw40-demonstrator | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/aw40-demonstrator/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| easy-stack-builder | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/easy-stack-builder/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| easy-stack-builder-catalogue | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/easy-stack-builder-catalogue/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| easy-stack-builder-orce | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/easy-stack-builder-orce/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| facis | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/facis/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| facis-aviation-poc | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/facis-aviation-poc/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| facis-fap1-implementation | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/facis-fap1-implementation/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| facis-fap2-implementation | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/facis-fap2-implementation/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
+| trusted-cloud | – | ⏳ | [eclipse-dash.yml](https://github.com/eclipse-xfsc/trusted-cloud/blob/main/.github/workflows/eclipse-dash.yml) | – | – |
