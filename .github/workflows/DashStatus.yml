@@ -21,30 +21,57 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORG: eclipse-xfsc
         run: |
-          echo "| Repo | Last Run | Status |" > IPSTATUS.md
-          echo "|------|----------|--------|" >> IPSTATUS.md
+          echo "| Repo | Last Run | Status | Workflow Link | Secrets inherit | Permissions read/write |" > IPSTATUS.md
+          echo "|------|----------|--------|----------------|-----------------|------------------------|" >> IPSTATUS.md
 
           repos=$(gh api --paginate /orgs/$ORG/repos --jq '.[].name')
 
           for repo in $repos; do
+            # --- 1. Letzten Dash-Workflow-Lauf abfragen ---
             run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt \
                    --jq '[.[] | select(.name | test("Eclipse Dash"; "i"))][0]')
             
             if [ -z "$run" ] || [ "$run" = "null" ]; then
-              echo "| $repo | – | ⏳ |" >> IPSTATUS.md
-              continue
+              lastRun="–"
+              icon="⏳"
+            else
+              lastRun=$(echo "$run" | jq -r '.createdAt')
+              status=$(echo "$run" | jq -r '.conclusion // .status')
+
+              case "$status" in
+                success) icon="✅" ;;
+                failure) icon="❌" ;;
+                *) icon="⏳" ;;
+              esac
             fi
 
-            lastRun=$(echo "$run" | jq -r '.createdAt')
-            status=$(echo "$run" | jq -r '.conclusion // .status')
+            # --- 2. Workflow-Datei prüfen (falls vorhanden) ---
+            wf_url="https://github.com/$ORG/$repo/blob/main/.github/workflows/eclipse-dash.yml"
+            tmpfile=$(mktemp)
 
-            case "$status" in
-              success) icon="✅" ;;
-              failure) icon="❌" ;;
-              *) icon="⏳" ;;
-            esac
+            if gh api "repos/$ORG/$repo/contents/.github/workflows/eclipse-dash.yml" \
+                --jq '.content' 2>/dev/null | base64 -d > "$tmpfile" 2>/dev/null; then
 
-            echo "| $repo | $lastRun | $icon |" >> IPSTATUS.md
+              if grep -q "secrets:[[:space:]]*inherit" "$tmpfile"; then
+                secrets_status="✅"
+              else
+                secrets_status="❌"
+              fi
+
+              if grep -q "permissions:[[:space:]]*$" "$tmpfile" && \
+                 grep -q "contents:[[:space:]]*read" "$tmpfile" && \
+                 grep -q "actions:[[:space:]]*write" "$tmpfile"; then
+                perms_status="✅"
+              else
+                perms_status="❌"
+              fi
+            else
+              secrets_status="–"
+              perms_status="–"
+            fi
+
+            # --- 3. Markdown-Zeile schreiben ---
+            echo "| $repo | $lastRun | $icon | [eclipse-dash.yml]($wf_url) | $secrets_status | $perms_status |" >> IPSTATUS.md
           done
           
       - name: Commit results
