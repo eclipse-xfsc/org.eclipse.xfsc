@@ -28,7 +28,7 @@ jobs:
 
           for repo in $repos; do
             # --- 1. Letzten Dash-Workflow-Lauf abfragen ---
-            run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt,html_url \
+            run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt,url \
                    --jq '[.[] | select(.name | test("Eclipse Dash"; "i"))][0]')
             
             if [ -z "$run" ] || [ "$run" = "null" ]; then
@@ -38,7 +38,7 @@ jobs:
             else
               lastRun=$(echo "$run" | jq -r '.createdAt')
               status=$(echo "$run" | jq -r '.conclusion // .status')
-              htmlUrl=$(echo "$run" | jq -r '.html_url')
+              runUrl=$(echo "$run" | jq -r '.url')
 
               case "$status" in
                 success) icon="✅" ;;
@@ -46,8 +46,8 @@ jobs:
                 *) icon="⏳" ;;
               esac
 
-              if [ "$htmlUrl" != "null" ]; then
-                run_link="[Run]($htmlUrl)"
+              if [ "$runUrl" != "null" ]; then
+                run_link="[Run]($runUrl)"
               else
                 run_link="–"
               fi
