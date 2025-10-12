@@ -21,28 +21,32 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORG: eclipse-xfsc
         run: |
-          echo "| Repo | Last Run | Status | Workflow Link | Secrets inherit | Permissions read/write |" > IPSTATUS.md
-          echo "|------|----------|--------|----------------|-----------------|------------------------|" >> IPSTATUS.md
+          echo "| Repo | Last Run | Status | Run Link | Workflow File | Secrets inherit | Permissions read/write |" > IPSTATUS.md
+          echo "|------|----------|--------|-----------|----------------|-----------------|------------------------|" >> IPSTATUS.md
 
           repos=$(gh api --paginate /orgs/$ORG/repos --jq '.[].name')
 
           for repo in $repos; do
             # --- 1. Letzten Dash-Workflow-Lauf abfragen ---
-            run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt \
+            run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt,htmlUrl \
                    --jq '[.[] | select(.name | test("Eclipse Dash"; "i"))][0]')
             
             if [ -z "$run" ] || [ "$run" = "null" ]; then
               lastRun="–"
               icon="⏳"
+              run_link="–"
             else
               lastRun=$(echo "$run" | jq -r '.createdAt')
               status=$(echo "$run" | jq -r '.conclusion // .status')
+              htmlUrl=$(echo "$run" | jq -r '.htmlUrl')
 
               case "$status" in
                 success) icon="✅" ;;
                 failure) icon="❌" ;;
                 *) icon="⏳" ;;
               esac
+
+              run_link="[Link]($htmlUrl)"
             fi
 
             # --- 2. Workflow-Datei prüfen (falls vorhanden) ---
@@ -71,7 +75,7 @@ jobs:
             fi
 
             # --- 3. Markdown-Zeile schreiben ---
-            echo "| $repo | $lastRun | $icon | [eclipse-dash.yml]($wf_url) | $secrets_status | $perms_status |" >> IPSTATUS.md
+            echo "| $repo | $lastRun | $icon | $run_link | [eclipse-dash.yml]($wf_url) | $secrets_status | $perms_status |" >> IPSTATUS.md
           done
           
       - name: Commit results
