@@ -6,8 +6,8 @@ on:
   workflow_dispatch: # manueller Start
 
 permissions:
-  contents: write       # nötig zum Commit ins Repo
-  actions: read         # nötig um Workflow-Runs anderer Repos abzufragen
+  contents: write
+  actions: read
 
 jobs:
   scan:
@@ -28,7 +28,7 @@ jobs:
 
           for repo in $repos; do
             # --- 1. Letzten Dash-Workflow-Lauf abfragen ---
-            run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt,htmlUrl \
+            run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt,html_url \
                    --jq '[.[] | select(.name | test("Eclipse Dash"; "i"))][0]')
             
             if [ -z "$run" ] || [ "$run" = "null" ]; then
@@ -38,7 +38,7 @@ jobs:
             else
               lastRun=$(echo "$run" | jq -r '.createdAt')
               status=$(echo "$run" | jq -r '.conclusion // .status')
-              htmlUrl=$(echo "$run" | jq -r '.htmlUrl')
+              htmlUrl=$(echo "$run" | jq -r '.html_url')
 
               case "$status" in
                 success) icon="✅" ;;
@@ -46,7 +46,11 @@ jobs:
                 *) icon="⏳" ;;
               esac
 
-              run_link="[Link]($htmlUrl)"
+              if [ "$htmlUrl" != "null" ]; then
+                run_link="[Run]($htmlUrl)"
+              else
+                run_link="–"
+              fi
             fi
 
             # --- 2. Workflow-Datei prüfen (falls vorhanden) ---
@@ -70,8 +74,8 @@ jobs:
                 perms_status="❌"
               fi
             else
-              secrets_status="–"
-              perms_status="–"
+              secrets_status="🚫"
+              perms_status="🚫"
             fi
 
             # --- 3. Markdown-Zeile schreiben ---
