@@ -21,8 +21,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORG: eclipse-xfsc
         run: |
-          echo "| Repo | Last Run | Status | Run Link | Workflow File | Secrets inherit | Permissions read/write |" > IPSTATUS.md
-          echo "|------|----------|--------|-----------|----------------|-----------------|------------------------|" >> IPSTATUS.md
+          echo "| Repo | Last Run | Status | Exit Code | Run Link | Workflow File | Secrets inherit | Permissions read/write |" > IPSTATUS.md
+          echo "|------|----------|--------|-----------|-----------|----------------|-----------------|------------------------|" >> IPSTATUS.md
 
           repos=$(gh api --paginate /orgs/$ORG/repos --jq '.[].name')
 
@@ -30,15 +30,31 @@ jobs:
             # --- 1. Letzten Dash-Workflow-Lauf abfragen ---
             run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt,url \
                    --jq '[.[] | select(.name | test("Eclipse Dash"; "i"))][0]')
-            
+
             if [ -z "$run" ] || [ "$run" = "null" ]; then
               lastRun="–"
               icon="⏳"
               run_link="–"
+              exit_code="–"
             else
+              run_id=$(echo "$run" | jq -r '.databaseId')
               lastRun=$(echo "$run" | jq -r '.createdAt')
               status=$(echo "$run" | jq -r '.conclusion // .status')
               runUrl=$(echo "$run" | jq -r '.url')
+
+              # --- 1b. Fehlercode abrufen, falls vorhanden ---
+              if [ "$status" = "failure" ]; then
+                # Den ersten fehlgeschlagenen Step auslesen
+                job_json=$(gh api "repos/$ORG/$repo/actions/runs/$run_id/jobs" --jq '.jobs[0]')
+                exit_code=$(echo "$job_json" | jq -r '.steps[] | select(.conclusion=="failure") | .exit_code' | head -n1)
+                if [ -z "$exit_code" ] || [ "$exit_code" = "null" ]; then
+                  exit_code="1"
+                fi
+              elif [ "$status" = "success" ]; then
+                exit_code="0"
+              else
+                exit_code="–"
+              fi
 
               case "$status" in
                 success) icon="✅" ;;
@@ -79,7 +95,7 @@ jobs:
             fi
 
             # --- 3. Markdown-Zeile schreiben ---
-            echo "| $repo | $lastRun | $icon | $run_link | [eclipse-dash.yml]($wf_url) | $secrets_status | $perms_status |" >> IPSTATUS.md
+            echo "| $repo | $lastRun | $icon | $exit_code | $run_link | [eclipse-dash.yml]($wf_url) | $secrets_status | $perms_status |" >> IPSTATUS.md
           done
           
       - name: Commit results
