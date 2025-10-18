@@ -29,7 +29,7 @@ jobs:
           for repo in $repos; do
             # --- 1. Letzten *Eclipse Dash Scan* Run suchen ---
             run=$(gh api "repos/$ORG/$repo/actions/runs" \
-                   --jq '[.workflow_runs[] | select(.name | test("Eclipse Dash Scan"; "i"))][0]' 2>/dev/null)
+                   --jq '[.workflow_runs[] | select((.name | test("Eclipse Dash Scan"; "i")) or (.path | test("eclipse-dash.yml$"; "i")))][0]' 2>/dev/null)
 
             if [ -z "$run" ] || [ "$run" = "null" ]; then
               lastRun="–"
@@ -42,12 +42,18 @@ jobs:
               status=$(echo "$run" | jq -r '.conclusion // .status')
               runUrl=$(echo "$run" | jq -r '.html_url')
 
-              # --- 1b. Error Code aus Run-Objekt holen ---
-              run_details=$(gh api "repos/$ORG/$repo/actions/runs/$run_id" --jq '{exit_code: .run_attempt, conclusion: .conclusion}' 2>/dev/null || echo '{}')
-              error_code=$(echo "$run_details" | jq -r '.exit_code // empty')
-              if [ -z "$error_code" ] || [ "$error_code" = "null" ]; then
-                # echte exit_code-Felder sind meist in jobs enthalten:
-                error_code=$(gh api "repos/$ORG/$repo/actions/runs/$run_id" --jq '.run_attempt // 0' 2>/dev/null)
+              # --- 1b. Error Code aus Jobs des Runs holen ---
+              if [ "$status" = "failure" ]; then
+                # Fehlercode aus erstem fehlgeschlagenen Step holen
+                error_code=$(gh api "repos/$ORG/$repo/actions/runs/$run_id/jobs" \
+                  --jq '[.jobs[].steps[] | select(.conclusion=="failure") | .exit_code][0]' 2>/dev/null)
+                if [ -z "$error_code" ] || [ "$error_code" = "null" ]; then
+                  error_code="1"
+                fi
+              elif [ "$status" = "success" ]; then
+                error_code="0"
+              else
+                error_code="–"
               fi
 
               case "$status" in
