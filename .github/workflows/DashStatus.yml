@@ -27,9 +27,9 @@ jobs:
           repos=$(gh api --paginate /orgs/$ORG/repos --jq '.[].name')
 
           for repo in $repos; do
-            # --- 1. Letzten *Eclipse Dash Scan* Run suchen ---
+            # --- 1. Letzten *Eclipse Dash Scan*-Run suchen ---
             run=$(gh api "repos/$ORG/$repo/actions/runs" \
-                   --jq '[.workflow_runs[] | select((.name | test("Eclipse Dash Scan"; "i")) or (.path | test("eclipse-dash.yml$"; "i")))][0]' 2>/dev/null)
+                   --jq '[.workflow_runs[] | select((.name | test("Eclipse Dash Scan";"i")) or (.path | test("eclipse-dash.yml$";"i")))][0]' 2>/dev/null)
 
             if [ -z "$run" ] || [ "$run" = "null" ]; then
               lastRun="–"
@@ -42,19 +42,28 @@ jobs:
               status=$(echo "$run" | jq -r '.conclusion // .status')
               runUrl=$(echo "$run" | jq -r '.html_url')
 
-              # --- 1b. Exakten Exit-Code aus fehlgeschlagenem Job holen ---
+              # --- 1b. Exakten Exit-Code bestimmen ---
               if [ "$status" = "failure" ]; then
-                # Ersten fehlgeschlagenen Job finden
+                # 1️⃣ Fehlgeschlagenen Job finden
                 job_id=$(gh api "repos/$ORG/$repo/actions/runs/$run_id/jobs" \
                   --jq '.jobs[] | select(.conclusion=="failure") | .id' 2>/dev/null | head -n1)
 
                 if [ -n "$job_id" ]; then
-                  # Echten numerischen Exit-Code aus Step lesen
+                  # 2️⃣ Exit-Code direkt aus Job-Steps versuchen
                   error_code=$(gh api "repos/$ORG/$repo/actions/jobs/$job_id" \
                     --jq '.steps[] | select(.conclusion=="failure") | .exit_code' 2>/dev/null | head -n1)
+
+                  # 3️⃣ Wenn kein Code → Log herunterladen und parsen
+                  if [ -z "$error_code" ] || [ "$error_code" = "null" ]; then
+                    tmpfile=$(mktemp)
+                    gh api "repos/$ORG/$repo/actions/jobs/$job_id/logs" \
+                      --jq .url 2>/dev/null | xargs -r curl -L -s -o "$tmpfile"
+                    error_code=$(grep -Eo 'Exit code [0-9]+' "$tmpfile" | tail -n1 | awk '{print $3}')
+                    rm -f "$tmpfile"
+                  fi
                 fi
 
-                # Fallback
+                # 4️⃣ Fallback
                 if [ -z "$error_code" ] || [ "$error_code" = "null" ]; then
                   error_code="1"
                 fi
@@ -65,10 +74,10 @@ jobs:
               fi
 
               case "$status" in
-                success) status_icon="✅" ;;
-                failure) status_icon="❌" ;;
+                success)   status_icon="✅" ;;
+                failure)   status_icon="❌" ;;
                 cancelled) status_icon="🚫" ;;
-                *) status_icon="⏳" ;;
+                *)         status_icon="⏳" ;;
               esac
 
               run_link="[Run]($runUrl)"
@@ -97,11 +106,12 @@ jobs:
               secrets_status="🚫"
               perms_status="🚫"
             fi
+            rm -f "$tmpfile"
 
             # --- 3. Markdown-Zeile schreiben ---
             echo "| $repo | $lastRun | $status_icon | $error_code | $run_link | [eclipse-dash.yml]($wf_url) | $secrets_status | $perms_status |" >> IPSTATUS.md
           done
-          
+
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
