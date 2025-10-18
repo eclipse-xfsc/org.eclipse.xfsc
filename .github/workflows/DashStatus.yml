@@ -42,11 +42,19 @@ jobs:
               status=$(echo "$run" | jq -r '.conclusion // .status')
               runUrl=$(echo "$run" | jq -r '.html_url')
 
-              # --- 1b. Error Code aus Jobs des Runs holen ---
+              # --- 1b. Exakten Exit-Code aus fehlgeschlagenem Job holen ---
               if [ "$status" = "failure" ]; then
-                # Fehlercode aus erstem fehlgeschlagenen Step holen
-                error_code=$(gh api "repos/$ORG/$repo/actions/runs/$run_id/jobs" \
-                  --jq '[.jobs[].steps[] | select(.conclusion=="failure") | .exit_code][0]' 2>/dev/null)
+                # Ersten fehlgeschlagenen Job finden
+                job_id=$(gh api "repos/$ORG/$repo/actions/runs/$run_id/jobs" \
+                  --jq '.jobs[] | select(.conclusion=="failure") | .id' 2>/dev/null | head -n1)
+
+                if [ -n "$job_id" ]; then
+                  # Echten numerischen Exit-Code aus Step lesen
+                  error_code=$(gh api "repos/$ORG/$repo/actions/jobs/$job_id" \
+                    --jq '.steps[] | select(.conclusion=="failure") | .exit_code' 2>/dev/null | head -n1)
+                fi
+
+                # Fallback
                 if [ -z "$error_code" ] || [ "$error_code" = "null" ]; then
                   error_code="1"
                 fi
