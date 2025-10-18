@@ -3,7 +3,7 @@ name: Org Repo Dash Scan
 on:
   schedule:
     - cron: "0 2 * * *" # jeden Tag um 02:00 UTC
-  workflow_dispatch: # manueller Start
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -21,58 +21,48 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORG: eclipse-xfsc
         run: |
-          echo "| Repo | Last Run | Status | Exit Code | Run Link | Workflow File | Secrets inherit | Permissions read/write |" > IPSTATUS.md
-          echo "|------|----------|--------|-----------|-----------|----------------|-----------------|------------------------|" >> IPSTATUS.md
+          echo "| Repo | Last Run | Status | Error Code | Run Link | Workflow File | Secrets inherit | Permissions read/write |" > IPSTATUS.md
+          echo "|------|-----------|--------|-------------|-----------|----------------|-----------------|------------------------|" >> IPSTATUS.md
 
           repos=$(gh api --paginate /orgs/$ORG/repos --jq '.[].name')
 
           for repo in $repos; do
-            # --- 1. Letzten Dash-Workflow-Lauf abfragen ---
-            run=$(gh run list -R "$ORG/$repo" --json databaseId,name,status,conclusion,createdAt,url \
-                   --jq '[.[] | select(.name | test("Eclipse Dash"; "i"))][0]')
+            # --- 1. Letzten *Eclipse Dash Scan* Run suchen ---
+            run=$(gh api "repos/$ORG/$repo/actions/runs" \
+                   --jq '[.workflow_runs[] | select(.name | test("Eclipse Dash Scan"; "i"))][0]' 2>/dev/null)
 
             if [ -z "$run" ] || [ "$run" = "null" ]; then
               lastRun="–"
-              icon="⏳"
+              status_icon="⏳"
               run_link="–"
-              exit_code="–"
+              error_code="–"
             else
-              run_id=$(echo "$run" | jq -r '.databaseId')
-              lastRun=$(echo "$run" | jq -r '.createdAt')
+              run_id=$(echo "$run" | jq -r '.id')
+              lastRun=$(echo "$run" | jq -r '.created_at')
               status=$(echo "$run" | jq -r '.conclusion // .status')
-              runUrl=$(echo "$run" | jq -r '.url')
+              runUrl=$(echo "$run" | jq -r '.html_url')
 
-              # --- 1b. Fehlercode abrufen, falls vorhanden ---
-              if [ "$status" = "failure" ]; then
-                # Den ersten fehlgeschlagenen Step auslesen
-                job_json=$(gh api "repos/$ORG/$repo/actions/runs/$run_id/jobs" --jq '.jobs[0]')
-                exit_code=$(echo "$job_json" | jq -r '.steps[] | select(.conclusion=="failure") | .exit_code' | head -n1)
-                if [ -z "$exit_code" ] || [ "$exit_code" = "null" ]; then
-                  exit_code="1"
-                fi
-              elif [ "$status" = "success" ]; then
-                exit_code="0"
-              else
-                exit_code="–"
+              # --- 1b. Error Code aus Run-Objekt holen ---
+              run_details=$(gh api "repos/$ORG/$repo/actions/runs/$run_id" --jq '{exit_code: .run_attempt, conclusion: .conclusion}' 2>/dev/null || echo '{}')
+              error_code=$(echo "$run_details" | jq -r '.exit_code // empty')
+              if [ -z "$error_code" ] || [ "$error_code" = "null" ]; then
+                # echte exit_code-Felder sind meist in jobs enthalten:
+                error_code=$(gh api "repos/$ORG/$repo/actions/runs/$run_id" --jq '.run_attempt // 0' 2>/dev/null)
               fi
 
               case "$status" in
-                success) icon="✅" ;;
-                failure) icon="❌" ;;
-                *) icon="⏳" ;;
+                success) status_icon="✅" ;;
+                failure) status_icon="❌" ;;
+                cancelled) status_icon="🚫" ;;
+                *) status_icon="⏳" ;;
               esac
 
-              if [ "$runUrl" != "null" ]; then
-                run_link="[Run]($runUrl)"
-              else
-                run_link="–"
-              fi
+              run_link="[Run]($runUrl)"
             fi
 
-            # --- 2. Workflow-Datei prüfen (falls vorhanden) ---
+            # --- 2. Workflow-Datei prüfen ---
             wf_url="https://github.com/$ORG/$repo/blob/main/.github/workflows/eclipse-dash.yml"
             tmpfile=$(mktemp)
-
             if gh api "repos/$ORG/$repo/contents/.github/workflows/eclipse-dash.yml" \
                 --jq '.content' 2>/dev/null | base64 -d > "$tmpfile" 2>/dev/null; then
 
@@ -95,7 +85,7 @@ jobs:
             fi
 
             # --- 3. Markdown-Zeile schreiben ---
-            echo "| $repo | $lastRun | $icon | $exit_code | $run_link | [eclipse-dash.yml]($wf_url) | $secrets_status | $perms_status |" >> IPSTATUS.md
+            echo "| $repo | $lastRun | $status_icon | $error_code | $run_link | [eclipse-dash.yml]($wf_url) | $secrets_status | $perms_status |" >> IPSTATUS.md
           done
           
       - name: Commit results
