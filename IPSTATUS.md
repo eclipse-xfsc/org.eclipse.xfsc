@@ -20,7 +20,7 @@
 | data-exchange-logging | 2025-10-12T13:49:17Z | ❌ | 1 | [Run](https://github.com/eclipse-xfsc/data-exchange-logging/actions/runs/18444842481) | [eclipse-dash.yml](https://github.com/eclipse-xfsc/data-exchange-logging/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
 | deployment | – | ⏳ | – | – | [eclipse-dash.yml](https://github.com/eclipse-xfsc/deployment/blob/main/.github/workflows/eclipse-dash.yml) | 🚫 | 🚫 |
 | dev-ops | – | ⏳ | – | – | [eclipse-dash.yml](https://github.com/eclipse-xfsc/dev-ops/blob/main/.github/workflows/eclipse-dash.yml) | 🚫 | 🚫 |
-| did-core | 2025-10-12T13:49:51Z | ✅ | 0 | [Run](https://github.com/eclipse-xfsc/did-core/actions/runs/18444847323) | [eclipse-dash.yml](https://github.com/eclipse-xfsc/did-core/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
+| did-core | 2025-10-23T16:49:43Z | ✅ | 0 | [Run](https://github.com/eclipse-xfsc/did-core/actions/runs/18755738347) | [eclipse-dash.yml](https://github.com/eclipse-xfsc/did-core/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
 | didcomm-v2-connector | 2025-10-01T00:27:39Z | ✅ | 0 | [Run](https://github.com/eclipse-xfsc/didcomm-v2-connector/actions/runs/18147223860) | [eclipse-dash.yml](https://github.com/eclipse-xfsc/didcomm-v2-connector/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
 | docs | – | ⏳ | – | – | [eclipse-dash.yml](https://github.com/eclipse-xfsc/docs/blob/main/.github/workflows/eclipse-dash.yml) | 🚫 | 🚫 |
 | email-service | 2025-10-01T00:06:13Z | ✅ | 0 | [Run](https://github.com/eclipse-xfsc/email-service/actions/runs/18146817063) | [eclipse-dash.yml](https://github.com/eclipse-xfsc/email-service/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
