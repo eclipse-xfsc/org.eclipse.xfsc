@@ -103,6 +103,5 @@
 | federated-catalogue | 2026-01-01T00:10:09Z | ❌ | 1 | [Run](https://github.com/eclipse-xfsc/federated-catalogue/actions/runs/20629500762) | [eclipse-dash.yml](https://github.com/eclipse-xfsc/federated-catalogue/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
 | transmute-universal-resolver-driver | 2026-01-01T00:16:36Z | ✅ | 0 | [Run](https://github.com/eclipse-xfsc/transmute-universal-resolver-driver/actions/runs/20629602907) | [eclipse-dash.yml](https://github.com/eclipse-xfsc/transmute-universal-resolver-driver/blob/main/.github/workflows/eclipse-dash.yml) | ✅ | ✅ |
 | facis | – | ⏳ | – | – | [eclipse-dash.yml](https://github.com/eclipse-xfsc/facis/blob/main/.github/workflows/eclipse-dash.yml) | 🚫 | 🚫 |
-| facis-fap | – | ⏳ | – | – | [eclipse-dash.yml](https://github.com/eclipse-xfsc/facis-fap/blob/main/.github/workflows/eclipse-dash.yml) | 🚫 | 🚫 |
-| facis-poc | – | ⏳ | – | – | [eclipse-dash.yml](https://github.com/eclipse-xfsc/facis-poc/blob/main/.github/workflows/eclipse-dash.yml) | 🚫 | 🚫 |
 | smartdeployment | – | ⏳ | – | – | [eclipse-dash.yml](https://github.com/eclipse-xfsc/smartdeployment/blob/main/.github/workflows/eclipse-dash.yml) | 🚫 | 🚫 |
+| osc-devops-docs | – | ⏳ | – | – | [eclipse-dash.yml](https://github.com/eclipse-xfsc/osc-devops-docs/blob/main/.github/workflows/eclipse-dash.yml) | 🚫 | 🚫 |
