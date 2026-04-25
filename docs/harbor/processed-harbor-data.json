@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-24T00:46:46.254Z",
+  "date": "2026-04-25T00:42:26.014Z",
   "projects": [
     {
       "name": "common-services/aas",
@@ -15,9 +15,9 @@
     },
     {
       "name": "common-services/sd-jwt-service",
-      "pull_count": 3323,
+      "pull_count": 3328,
       "creation_time": "2025-01-11T11:24:11.289Z",
-      "update_time": "2026-04-23T07:55:37.537Z"
+      "update_time": "2026-04-24T13:57:16.614Z"
     },
     {
       "name": "common-services/event-log-service",
@@ -261,15 +261,15 @@
     },
     {
       "name": "ocm-wstack/issuance-service",
-      "pull_count": 16588,
+      "pull_count": 16594,
       "creation_time": "2024-03-27T15:43:25.814Z",
-      "update_time": "2026-04-23T07:55:37.529Z"
+      "update_time": "2026-04-24T13:57:06.608Z"
     },
     {
       "name": "ocm-wstack/credential-verification-service",
-      "pull_count": 37673,
+      "pull_count": 37676,
       "creation_time": "2024-02-27T08:10:54.547Z",
-      "update_time": "2026-04-23T07:55:37.533Z"
+      "update_time": "2026-04-24T13:57:16.618Z"
     },
     {
       "name": "ocm-wstack/storage-service",
@@ -279,15 +279,15 @@
     },
     {
       "name": "ocm-wstack/pre-authorization-bridge",
-      "pull_count": 36460,
+      "pull_count": 36465,
       "creation_time": "2024-02-01T14:07:13.116Z",
-      "update_time": "2026-04-23T07:55:37.536Z"
+      "update_time": "2026-04-24T13:57:16.621Z"
     },
     {
       "name": "ocm-wstack/status-list-service",
-      "pull_count": 11080,
+      "pull_count": 11085,
       "creation_time": "2024-02-01T14:07:05.467Z",
-      "update_time": "2026-04-23T07:55:37.534Z"
+      "update_time": "2026-04-24T13:57:16.620Z"
     },
     {
       "name": "ocm-wstack/revocation-service",
@@ -297,9 +297,9 @@
     },
     {
       "name": "ocm-wstack/well-known-service",
-      "pull_count": 17693,
+      "pull_count": 17713,
       "creation_time": "2024-01-16T14:50:33.008Z",
-      "update_time": "2026-04-23T07:55:37.531Z"
+      "update_time": "2026-04-24T14:02:56.667Z"
     },
     {
       "name": "pcm/aries-mediator-service",
@@ -453,9 +453,9 @@
     },
     {
       "name": "tsa/crypto-provider-hashicorp-vault-plugin",
-      "pull_count": 2831,
+      "pull_count": 2834,
       "creation_time": "2025-11-25T22:09:52.497Z",
-      "update_time": "2026-04-20T13:38:35.646Z"
+      "update_time": "2026-04-24T12:48:26.243Z"
     },
     {
       "name": "tsa/task",
@@ -483,9 +483,9 @@
     },
     {
       "name": "tsa/signer",
-      "pull_count": 63197,
+      "pull_count": 63200,
       "creation_time": "2024-02-06T17:28:17.010Z",
-      "update_time": "2026-04-21T18:36:05.346Z"
+      "update_time": "2026-04-24T12:48:16.236Z"
     }
   ]
 }
